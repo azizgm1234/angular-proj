@@ -8,6 +8,8 @@ import { SidebarBackComponent } from './BackOffice/sidebar-back/sidebar-back.com
 import { NavbarBackComponent } from './BackOffice/navbar-back/navbar-back.component';
 import { TemplateBComponent } from './BackOffice/template-b/template-b.component';
 import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
+import { AddclientComponent } from './BackOffice/addclient/addclient.component';
+import { ClientsComponent } from './BackOffice/clients/clients.component';
 
 const routes: Routes = [
   {
@@ -20,8 +22,11 @@ const routes: Routes = [
     path:"admin",
     component:TemplateBComponent,
     children: [
-      { path: 'homeb', component: HomeBackComponent }]
-  }
+      { path: 'homeb', component: HomeBackComponent },
+      { path: 'clients', component: ClientsComponent },
+      { path: 'addclient', component: AddclientComponent }]
+  },
+  
 ];
 
 @NgModule({

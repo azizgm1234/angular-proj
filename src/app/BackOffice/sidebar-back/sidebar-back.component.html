@@ -6,7 +6,7 @@
                     <mat-sidenav mode="side" opened>
                         <mat-nav-list>
                           <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" mat-button (click)="toggleDashboardList()">
+                            <a class="nav-link " aria-current="page" mat-button (click)="toggleDashboardList()" routerLink="/admin/homeb"   [ngClass]="{'active': isRouteActive('/admin/homeb')}">
                               <i class="bi-house-fill me-2"></i>
                               Dashboard
                             </a>
@@ -17,13 +17,13 @@
                           </li>
                       
                           <li class="nav-item">
-                            <a class="nav-link" aria-current="page" mat-button (click)="toggleUserList()">
+                            <a class="nav-link" aria-current="page" mat-button (click)="toggleUserList()"  [ngClass]="{'active': isRouteActive('/admin/clients') || isRouteActive('/admin/addclient')}">
                               <i class="bi-person me-2"></i>
                               User
                             </a>
                             <div *ngIf="user">
-                              <a mat-list-item routerLink="/users/all">All Users</a>
-                              <a mat-list-item routerLink="/users/statistics">Statistics</a>
+                              <a mat-list-item routerLink="/admin/clients">All Clients</a>
+                              <a mat-list-item routerLink="/admin/addclient">Add Client</a>
                             </div>
                           </li>
                           <li class="nav-item">

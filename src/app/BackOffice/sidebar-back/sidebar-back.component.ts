@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sidebar-back',
   templateUrl: './sidebar-back.component.html',
   styleUrls: ['./sidebar-back.component.css']
 })
 export class SidebarBackComponent {
+  constructor(private router: Router) {}
   isDashboardListExpanded = true;
   user = false;
   wallet = false;
@@ -20,5 +21,10 @@ export class SidebarBackComponent {
   togglewalletList(){
     this.wallet = !this.wallet;
   }
+
+  isRouteActive(route: string): boolean {
+    return this.router.isActive(route, true);
+  }
+
 
 }

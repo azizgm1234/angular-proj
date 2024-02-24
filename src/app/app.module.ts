@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TemplateFComponent } from './FrontOffice/template-f/template-f.component';
 import { NavbarFrontComponent } from './FrontOffice/navbar-front/navbar-front.component';
@@ -17,6 +19,7 @@ import { TemplateBComponent } from './BackOffice/template-b/template-b.component
 import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientsComponent } from './BackOffice/clients/clients.component';
+import { AddclientComponent } from './BackOffice/addclient/addclient.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { ClientsComponent } from './BackOffice/clients/clients.component';
     TemplateBComponent,
     HomeBackComponent,
     ClientsComponent,
+    AddclientComponent,
 
     
   ],
@@ -40,7 +44,9 @@ import { ClientsComponent } from './BackOffice/clients/clients.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    ReactiveFormsModule
     
     
   ],
