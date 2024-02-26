@@ -25,7 +25,18 @@
                               <a mat-list-item routerLink="/admin/clients">All Clients</a>
                               <a mat-list-item routerLink="/admin/addclient">Add Client</a>
                             </div>
-                          </li>
+                             </li>
+                             <li class="nav-item">
+                              <a class="nav-link" aria-current="page" mat-button (click)="toggleUserList()" routerLink="/admin/homeb" [ngClass]="{'active': isRouteActive('/admin/Recrutement') || isRouteActive('/admin/addRecrutement')}">
+                                <i class="bi-person me-2"></i>
+                                Human resource
+                             
+                              </a>
+                              <div *ngIf="user">
+                                <a mat-list-item routerLink="/admin/addrecrutement">Add recrutement</a>
+                                <a mat-list-item routerLink="/admin/recrutement">all recrutement</a>
+                              </div>
+                            </li>
                           <li class="nav-item">
                             <a class="nav-link" aria-current="page" mat-button (click)="togglewalletList()">
                                 <i class="bi-wallet me-2"></i>

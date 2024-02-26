@@ -23,7 +23,7 @@ export class AddclientComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       companyAddress: ['', Validators.required],
-      // Add other form controls as needed
+    
     });}
 
   onSubmit(): void {

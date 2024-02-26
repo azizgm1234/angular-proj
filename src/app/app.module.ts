@@ -20,6 +20,12 @@ import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientsComponent } from './BackOffice/clients/clients.component';
 import { AddclientComponent } from './BackOffice/addclient/addclient.component';
+import { RecrutementComponent } from './BackOffice/recrutement/recrutement.component';
+import { AddrecrutementComponent } from './BackOffice/addrecrutement/addrecrutement.component';
+import { CommonModule } from '@angular/common';
+import { ModifierRecrutementComponent } from './BackOffice/modifier-recrutement/modifier-recrutement.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +40,10 @@ import { AddclientComponent } from './BackOffice/addclient/addclient.component';
     HomeBackComponent,
     ClientsComponent,
     AddclientComponent,
+    RecrutementComponent,
+    AddrecrutementComponent,
+    ModifierRecrutementComponent,
+   
 
     
   ],
@@ -46,10 +56,12 @@ import { AddclientComponent } from './BackOffice/addclient/addclient.component';
     MatListModule,
     MatIconModule,
     HttpClientModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule
     
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

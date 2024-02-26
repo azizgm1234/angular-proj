@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TemplateFComponent } from './FrontOffice/template-f/template-f.component';
@@ -10,6 +11,10 @@ import { TemplateBComponent } from './BackOffice/template-b/template-b.component
 import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
 import { AddclientComponent } from './BackOffice/addclient/addclient.component';
 import { ClientsComponent } from './BackOffice/clients/clients.component';
+import { AddrecrutementComponent } from './BackOffice/addrecrutement/addrecrutement.component'; 
+import { RecrutementComponent } from './BackOffice/recrutement/recrutement.component';
+import { ModifierRecrutementComponent } from './BackOffice/modifier-recrutement/modifier-recrutement.component';
+
 
 const routes: Routes = [
   {
@@ -17,6 +22,7 @@ const routes: Routes = [
     component:TemplateFComponent,
     children: [
       { path: 'home', component: HomeFrontComponent }]
+      
   },
   {
     path:"admin",
@@ -24,7 +30,14 @@ const routes: Routes = [
     children: [
       { path: 'homeb', component: HomeBackComponent },
       { path: 'clients', component: ClientsComponent },
-      { path: 'addclient', component: AddclientComponent }]
+      { path: 'addclient', component: AddclientComponent },
+      { path: 'addrecrutement', component: AddrecrutementComponent},
+      { path: 'recrutement', component: RecrutementComponent},
+    // { path: 'ModifierRecrutement/:id', component: ModifierRecrutementComponent },
+    { path: 'modifier-recrutement/:id', component: ModifierRecrutementComponent },
+      { path: '', redirectTo: '/recrutement', pathMatch: 'full' },
+    ]
+
   },
   
 ];
