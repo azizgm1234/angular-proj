@@ -18,6 +18,8 @@ export class SidebarBackComponent {
   toggleUserList() {
     this.user = !this.user;
   }
+
+  
   togglewalletList(){
     this.wallet = !this.wallet;
   }

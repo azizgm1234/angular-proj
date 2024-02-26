@@ -1,0 +1,20 @@
+
+<h3>Update recrutement</h3>
+<div style="width: 400px;">
+<div *ngFor="let recrutement of recrutements">
+    <h2>{{ recrutement.poste }}</h2>
+    <p>Type de recrutement: {{ recrutement.typeRecrutement }}</p>
+    <!-- Ajoutez d'autres champs de formulaire ici selon vos besoins -->
+    <button (click)="editRecrutement(recrutement)">Modifier</button>
+  </div>
+  
+  <!-- Formulaire pour modifier un recrutement -->
+  <form *ngIf="selectedRecrutement" (ngSubmit)="onSubmit()">
+    <label for="poste">Poste:</label>
+    <input type="text" id="poste" name="poste" [(ngModel)]="selectedRecrutement.poste" required>
+    <form *ngIf="selectedRecrutement" (ngSubmit)="onSubmit()">
+    <!-- Ajoutez d'autres champs de formulaire ici selon vos besoins -->
+  
+    <button type="submit">Enregistrer</button>
+  </form>
+  
