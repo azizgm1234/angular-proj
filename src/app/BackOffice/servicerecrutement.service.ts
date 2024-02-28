@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RecrutementComponent } from './recrutement/recrutement.component';
 import { Observable } from 'rxjs';
 import { Recrutement } from './recrutement.model';
 import { CommonModule } from '@angular/common';
@@ -23,7 +22,7 @@ export class ServicerecrutementService {
     return this.http.post<Recrutement>(`${this.apiUrl}/addRecrutement`, recrutement);
   }  
   
-    updateRecrutement(idRec: number, recrutement: Recrutement): Observable<Recrutement> {
+  updateRecrut(idRec: number, recrutement: Recrutement): Observable<Recrutement> {
       return this.http.put<Recrutement>(`${this.apiUrl}/updateRecrutement/${idRec}`, recrutement);
     }
     

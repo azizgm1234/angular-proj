@@ -25,7 +25,7 @@ export class ModifierRecrutementComponent implements OnInit {
   }
 
   editRecrutement(recrutement: Recrutement): void {
-    this.recrutementService.updateRecrutement(recrutement.idRec, recrutement).subscribe(updatedRecrutement => {
+    this.recrutementService.updateRecrut(recrutement.idRec, recrutement).subscribe(updatedRecrutement => {
     
       const index = this.recrutements.findIndex(r => r.idRec === updatedRecrutement.idRec);
       if (index !== -1) {
@@ -36,7 +36,7 @@ export class ModifierRecrutementComponent implements OnInit {
 
   onSubmit(): void {
     if (this.selectedRecrutement) {
-      this.recrutementService.updateRecrutement(this.selectedRecrutement.idRec, this.selectedRecrutement)
+      this.recrutementService.updateRecrut(this.selectedRecrutement.idRec, this.selectedRecrutement)
         .subscribe(updatedRecrutement => {
           const index = this.recrutements.findIndex(r => r.idRec === updatedRecrutement.idRec);
           if (index !== -1) {

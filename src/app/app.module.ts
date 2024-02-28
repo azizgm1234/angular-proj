@@ -25,6 +25,10 @@ import { AddrecrutementComponent } from './BackOffice/addrecrutement/addrecrutem
 import { CommonModule } from '@angular/common';
 import { ModifierRecrutementComponent } from './BackOffice/modifier-recrutement/modifier-recrutement.component';
 import { FormsModule } from '@angular/forms';
+import { AllrecrutementComponent } from './FrontOffice/allrecrutement/allrecrutement.component';
+import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
+
+
 
 
 @NgModule({
@@ -43,6 +47,11 @@ import { FormsModule } from '@angular/forms';
     RecrutementComponent,
     AddrecrutementComponent,
     ModifierRecrutementComponent,
+    AllrecrutementComponent,
+    CandidatComponent,
+ 
+
+
    
 
     
@@ -58,8 +67,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    FormsModule
-    
+    FormsModule,
+    ReactiveFormsModule
   ],
   
   providers: [],
