@@ -16,6 +16,15 @@ import { RecrutementComponent } from './BackOffice/recrutement/recrutement.compo
 import { ModifierRecrutementComponent } from './BackOffice/modifier-recrutement/modifier-recrutement.component';
 import { AllrecrutementComponent } from './FrontOffice/allrecrutement/allrecrutement.component';
 import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
+import { EditResourceComponent } from './BackOffice/Resources/edit-resource/edit-resource.component';
+import { ResourceComponent } from './BackOffice/Resources/resource/resource.component';
+import { AddResourceComponent } from './BackOffice/Resources/add-resource/add-resource.component';
+import { AfficherStockComponent } from './BackOffice/Stock/afficher-stock/afficher-stock.component';
+import { EditStockComponent } from './BackOffice/Stock/edit-stock/edit-stock.component';
+import { AddStockComponent } from './BackOffice/Stock/add-stock/add-stock.component';
+import { AddFournisseurComponent } from './BackOffice/Fournisseur/add-fournisseur/add-fournisseur.component';
+import { AfficherFournisseurComponent } from './BackOffice/Fournisseur/afficher-fournisseur/afficher-fournisseur.component';
+import { EditFournisseurComponent } from './BackOffice/Fournisseur/edit-fournisseur/edit-fournisseur.component';
 
 const routes: Routes = [
   {
@@ -42,6 +51,15 @@ const routes: Routes = [
       { path: 'addrecrutement', component: AddrecrutementComponent},
       { path: 'recrutement', component: RecrutementComponent},
       { path: 'modifier-recrutement/:id', component:  ModifierRecrutementComponent },
+      { path: 'edit-resource/:id', component: EditResourceComponent },
+      { path: 'resources', component: ResourceComponent },
+      { path: 'addResource', component: AddResourceComponent },
+      { path: 'stock', component: AfficherStockComponent },
+      { path: 'edit-stock/:id', component: EditStockComponent },
+      { path: 'addStock', component: AddStockComponent },
+      { path: 'addFournisseur', component: AddFournisseurComponent },
+      { path: 'fournisseur', component: AfficherFournisseurComponent },
+      { path: 'edit-fournisseur/:id', component: EditFournisseurComponent }
    //   { path: 'modifier-recrutement/:id', component: ModifierRecrutementComponent }
    //{ path: '', redirectTo: '/recrutement', pathMatch: 'full' },
 

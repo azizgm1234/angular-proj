@@ -27,6 +27,15 @@ import { ModifierRecrutementComponent } from './BackOffice/modifier-recrutement/
 import { FormsModule } from '@angular/forms';
 import { AllrecrutementComponent } from './FrontOffice/allrecrutement/allrecrutement.component';
 import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
+import { ResourceComponent } from './BackOffice/Resources/resource/resource.component';
+import { EditResourceComponent } from './BackOffice/Resources/edit-resource/edit-resource.component';
+import { AddResourceComponent } from './BackOffice/Resources/add-resource/add-resource.component';
+import { AfficherStockComponent } from './BackOffice/Stock/afficher-stock/afficher-stock.component';
+import { EditStockComponent } from './BackOffice/Stock/edit-stock/edit-stock.component';
+import { AddStockComponent } from './BackOffice/Stock/add-stock/add-stock.component';
+import { AfficherFournisseurComponent } from './BackOffice/Fournisseur/afficher-fournisseur/afficher-fournisseur.component';
+import { EditFournisseurComponent } from './BackOffice/Fournisseur/edit-fournisseur/edit-fournisseur.component';
+import { AddFournisseurComponent } from './BackOffice/Fournisseur/add-fournisseur/add-fournisseur.component';
 
 
 
@@ -49,6 +58,15 @@ import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
     ModifierRecrutementComponent,
     AllrecrutementComponent,
     CandidatComponent,
+    ResourceComponent,
+    EditResourceComponent,
+    AddResourceComponent,
+    AfficherStockComponent,
+    EditStockComponent,
+    AddStockComponent,
+    AfficherFournisseurComponent,
+    EditFournisseurComponent,
+    AddFournisseurComponent,
  
 
 
