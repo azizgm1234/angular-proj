@@ -26,7 +26,7 @@ export class RecrutementComponent implements OnInit {
 
   removeRecrutement(id: number): void {
     this.recrutementService.removeRecrutement(id).subscribe(() => {
-      // Mettez à jour la liste des recrutements après la suppression
+   
       this.recrutements = this.recrutements.filter(recrutement => recrutement.idRec !== id);
     });
   }
