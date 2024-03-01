@@ -10,6 +10,11 @@ import { TemplateBComponent } from './BackOffice/template-b/template-b.component
 import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
 import { AddclientComponent } from './BackOffice/addclient/addclient.component';
 import { ClientsComponent } from './BackOffice/clients/clients.component';
+import { ContratComponent } from './BackOffice/contrat/contrat.component';
+import { AddcontratComponent } from './BackOffice/addcontrat/addcontrat.component';
+import { EditclientComponent } from './BackOffice/editclient/editclient.component';
+import { EditcontratComponent } from './BackOffice/editcontrat/editcontrat.component';
+import { FactureComponent } from './BackOffice/facture/facture.component';
 
 const routes: Routes = [
   {
@@ -24,9 +29,14 @@ const routes: Routes = [
     children: [
       { path: 'homeb', component: HomeBackComponent },
       { path: 'clients', component: ClientsComponent },
-      { path: 'addclient', component: AddclientComponent }]
-  },
-  
+      { path: 'addclient', component: AddclientComponent },
+      {path: 'editclient', component: EditclientComponent},
+      {path: 'contrat', component: ContratComponent},
+      {path: 'addcontrat', component: AddcontratComponent},
+      {path: 'editcontrat', component: EditcontratComponent},
+      {path: 'facture', component: FactureComponent}
+       ]
+  },  
 ];
 
 @NgModule({

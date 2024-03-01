@@ -1,0 +1,148 @@
+
+<body>
+    
+
+                
+
+
+
+
+<div class="container-fluid">
+    
+<div class="row">
+    
+
+<main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-10 px-md-4 border-start">
+    <button type="button" class="btn btn-primary" (click)="openform()">Add Facture</button>
+
+<div class="row my-4">
+   
+<div class="col-lg-7 col-12"  *ngFor="let facture of Factures">
+
+<div class="custom-block custom-block-profile bg-white" style="width:600px;">
+    <p class="d-flex flex-wrap mb-2">
+        <strong id="number">{{facture.invoice_number}}</strong>
+
+    
+    </p>
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Designation</strong>
+
+        <span>{{facture.designation}}</span>
+    </p>
+
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Cuurency:</strong>
+
+        <span>{{facture.currency}}</span>
+    </p>
+
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Created:</strong>
+
+        <span>{{facture.facture_date}}</span>
+    </p>
+
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Due Date:</strong>
+
+        <span>{{facture.due_date}}</span>
+    </p>
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Totale Amount:</strong>
+
+        <span>{{facture.total_amount}}</span>
+    </p>
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Paied Amount:</strong>
+
+        <span>{{facture.paid_amount}}</span>
+    </p>
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Payment Status:</strong>
+
+        <span>{{facture.payment_status}}</span>
+    </p>
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Notes:</strong>
+
+        <span>{{facture.notes}}</span>
+    </p>
+    <p class="d-flex flex-wrap mb-2">
+        <strong>Milestone Description:</strong>
+
+        <span>{{facture.milestone_description}}</span>
+    </p>
+    <button type="button" class="btn btn-outline-danger" (click)="removefacture(facture.idFacture)" >Delete</button>
+</div>
+
+</div>
+<div class="row my-4">
+    <div class="col-lg-7 col-12"  *ngIf="isFormOpen">
+        <div class="custom-block bg-white">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="profile-tab">Fill in Facture details</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0" >
+                    <form #factureFormElement class="custom-form profile-form"  role="form" [formGroup]="factureForm" (ngSubmit)="onSubmit()">
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="designation" formControlName="designation" required>
+                       
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="currency" formControlName="currency" required>
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="invoiceNumber" formControlName="invoice_number" required>
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="factureDate" formControlName="facture_date" required>
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="dueDate" formControlName="due_date" required>
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="totalAmount" formControlName="total_amount" required>
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="paidAmount" formControlName="paid_amount" required>
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="milestoneDescription" formControlName="milestone_description" required>
+                        <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="notes" formControlName="notes" required>
+                        <select id="typeContrat" formControlName="payment_status" required class="form-select" >
+                            <option value="Select Payment Status" disabled selected>Select Payment Status</option>
+                            <option value="SERVICE_CONTRACT">Outstanding</option>
+                            <option value="PRODUCT_PURCHASE_CONTRACT">Partially paid</option>
+                            <option value="SUBSCRIPTION_CONTRACT">Paid</option>
+                          </select>
+                        
+                          
+                          
+
+                        <div class="d-flex">
+                            <button type="button" class="form-control me-3">
+                                Cancel
+                            </button>
+
+                            <button type="submit" [disabled]="factureForm.invalid" class="form-control ms-2">
+                                Add Facture
+                            </button>
+                            
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-12 col-12">
+                <p class="copyright-text">Copyright © Mini Finance 2048 
+                - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+</main>
+</div>
+</div>
+</body>

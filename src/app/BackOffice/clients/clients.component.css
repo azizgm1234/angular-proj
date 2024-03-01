@@ -1,0 +1,35 @@
+.actions button {
+  background: none;
+  border: none;
+}
+#edit {
+  color: rgb(73, 190, 73);
+}
+#edit:hover {
+  color: rgb(20, 93, 20);
+}
+
+#delete {
+  color: red;
+}
+#delete:hover {
+  color: rgb(142, 74, 74);
+}
+.searching {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+.filtres button {
+  width: 50%;
+}
+.custom-form .form-control {
+  color: var(--p-color);
+  border-radius: 10px;
+  font-size: var(--menu-font-size);
+  background-color: aliceblue;
+  margin-bottom: 24px;
+  padding: 10px 20px;
+  outline: none;
+  transition: all 0.3s;
+}

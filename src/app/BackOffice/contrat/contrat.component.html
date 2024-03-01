@@ -1,62 +1,67 @@
 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-10 px-md-4 border-start">
     <div class="title-group mb-3">
-        <h1 class="h2 mb-0">Client List</h1>
+        <h1 class="h2 mb-0">Contracts</h1>
     </div>
 
     <div class="row my-4">
         <div class="col-lg-12 col-12">
             <div class="custom-block bg-white">
-<div class="searching">
-           <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
-            <input class="form-control" name="search" type="text" placeholder="Search Client" aria-label="Search">
-        </form>
-        <div class="filtres">
-     <button type="button" class="btn btn-primary"><i class="bi bi-funnel"></i> Filtre </button>
-    <button type="button" class="btn btn-outline-primary" disabled><i class="bi bi-file-pdf"></i> Export </button>
-</div>
-</div>
+                <h5 class="mb-4">Client contracts history</h5>
 
                 <div class="table-responsive">
                     <table class="account-table table">
                         <thead>
                             <tr>
-                                <th scope="col">Client Name</th>
+                                <th scope="col">Type</th>
 
-                                <th scope="col">Email</th>
+                                <th scope="col">Date</th>
 
-                                <th scope="col">Phone</th>
+                                <th scope="col">Start Date</th>
 
-                                <th scope="col">Company Adress</th>
+                                <th scope="col">End Date</th>
 
-                                <th scope="col">Not paid Amount</th>
+                                <th scope="col">Currency</th>
 
-                                <th scope="col">Actions</th>
-                                
+                                <th scope="col">payment</th>
+
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
 
                             </tr>
                         </thead>
 
-                        <tbody *ngFor="let client of clients">
+                        <tbody  *ngFor="let Contract of Contracts">
                             <tr>
                         
-                                <td scope="row" > {{ client.nom }} {{ client.prenom }}</td>
+                                <td scope="row" >{{Contract.typeContrat}}</td>
 
-                                <td scope="row">{{ client.email }}</td>
+                                <td scope="row">{{Contract.contractDate }}</td>
 
-                                <td scope="row">{{ client.phone }}</td>
+                                <td scope="row">{{Contract.startDate }}</td>
 
-                                <td scope="row">{{ client.companyAddress }}</td>
+                                <td scope="row">{{Contract.endDate }}</td>
 
-                                <td  scope="row">$250</td>
-
-                                <td scope="row" class="actions">
-                                    <button (click)="navigateToeditclient(client.idClient)"><i id="edit" class="bi bi-pencil-fill"></i></button>
-                                   <button (click)="removeClient(client.idClient)"> <i id="delete" class="bi bi-trash-fill"></i></button>
-                                 
+                                <td  scope="row">
+                                   
+                                    {{Contract.currency}}
+                                  
                                 </td>
 
-                            
-                                
+                                <td scope="row">{{Contract.payment_terms}}</td>
+
+                                <td scope="row">
+                                    <span class="badge text-bg-danger">
+                                        {{Contract.contract_status}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-success text-success" (click)="navtoeditcontrat(Contract.idContract)" style="height: 30px; text-align:center; font-size: 14px;">edit</button>
+
+                                 </td>
+                                 <td> <button type="button" class="btn btn-outline-danger" (click)="removecontrat(Contract.idContract)" style="height: 30px; text-align:center; font-size: 14px;">Delete</button></td>
+                                 <td> <button type="button" class="btn btn-outline-danger" (click)="navtofacture(id,Contract.idContract )" style="height: 30px; text-align:center; font-size: 14px;">Factures</button></td>
                             </tr>
                             
                            

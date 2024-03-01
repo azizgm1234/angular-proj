@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ServiceclientService } from '../serviceclient.service';
 import { OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients',
@@ -14,7 +14,8 @@ export class ClientsComponent implements OnInit{
 
  
 
-  constructor(private clientservice:ServiceclientService){}
+  constructor(private router: Router,private clientservice:ServiceclientService){}
+  
 
 /*getall*/
   ngOnInit(): void {
@@ -32,6 +33,15 @@ export class ClientsComponent implements OnInit{
       });
     });
   }
-  
+  navigateToContracts(idClient: number): void {
+    this.router.navigate(['/admin/contrat'], { queryParams: { id: idClient } });
+  }
+
+  navigateToeditclient(idClient: number): void {
+    this.router.navigate(['/admin/editclient'], { queryParams: { id: idClient } });
+  }
+  navigateToaddContracts(idClient: number): void {
+    this.router.navigate(['/admin/addcontrat'], { queryParams: { id: idClient } });
+  }
 
 }

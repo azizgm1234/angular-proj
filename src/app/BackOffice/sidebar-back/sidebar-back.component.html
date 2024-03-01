@@ -1,8 +1,19 @@
+<div class="left">
 <div class="container-fluid">
     <div class="row">
+      
         <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+          <div class="image">
+
+            <img class="logo" src="./assets/Back/images/logo.png">
+           <div class="name"><a>
+              Co Consult
+          </a></div>
+            
+    </div>
             <div class="position-sticky py-4 px-3 sidebar-sticky">
-                <ul class="nav flex-column h-100">
+                
+              <ul class="nav flex-column h-100">
                     <mat-sidenav mode="side" opened>
                         <mat-nav-list>
                           <li class="nav-item">
@@ -17,13 +28,13 @@
                           </li>
                       
                           <li class="nav-item">
-                            <a class="nav-link" aria-current="page" mat-button (click)="toggleUserList()"  [ngClass]="{'active': isRouteActive('/admin/clients') || isRouteActive('/admin/addclient')}">
+                            <a  class="nav-link" aria-current="page" mat-button (click)="toggleUserList()"  [ngClass]="{'active': isRouteActive('/admin/clients') || isRouteActive('/admin/addclient') || isRouteActive('/admin/addcontrat') }">
                               <i class="bi-person me-2"></i>
-                              User
+                              Clients
                             </a>
                             <div *ngIf="user">
-                              <a mat-list-item routerLink="/admin/clients">All Clients</a>
-                              <a mat-list-item routerLink="/admin/addclient">Add Client</a>
+                              <a mat-list-item id="aa" routerLink="/admin/clients">All Clients</a>
+                              <a mat-list-item routerLink="/admin/addclient">add Clients</a>
                             </div>
                           </li>
                           <li class="nav-item">
@@ -61,11 +72,7 @@
 
                    
 
-                    <li class="nav-item featured-box mt-lg-5 mt-4 mb-4">
-                        <img src="/assets/Back/images/credit-card.png" class="img-fluid" alt="">
-
-                        <a class="btn custom-btn" href="#">Upgrade</a>
-                    </li>
+                    
 
                     <li class="nav-item border-top mt-auto pt-2">
                         <a class="nav-link" href="#">
@@ -79,4 +86,5 @@
 
      
     </div>
+</div>
 </div>

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class SidebarBackComponent {
   constructor(private router: Router) {}
-  isDashboardListExpanded = true;
+  isDashboardListExpanded = false;
   user = false;
   wallet = false;
 

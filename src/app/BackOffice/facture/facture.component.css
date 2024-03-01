@@ -1,0 +1,16 @@
+.custom-block-profile strong {
+  margin-right: 100px;
+}
+#number {
+  margin-left: 220px;
+  margin-bottom: 20px;
+}
+.form-select {
+  color: var(--p-color);
+  border-radius: var(--border-radius-large);
+  font-size: var(--menu-font-size);
+  margin-bottom: 24px;
+  padding: 10px 20px;
+  outline: none;
+  transition: all 0.3s;
+}
