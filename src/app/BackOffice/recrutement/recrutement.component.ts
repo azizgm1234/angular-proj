@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class RecrutementComponent implements OnInit {
   recrutements: Recrutement[] = [];
   
-  constructor(private router: Router, private recrutementService: ServicerecrutementService) {}
+  constructor(private router: Router, private recrutementService  : ServicerecrutementService) {}
 
   ngOnInit(): void {
     this.recrutementService.getAll().subscribe((data: Recrutement[]) => {
@@ -31,8 +31,8 @@ export class RecrutementComponent implements OnInit {
     });
   }
 
-  editRecrutement(recrutement: Recrutement): void {
-    this.router.navigate(['/modifier-recrutement', recrutement.idRec]); // Rediriger vers la page de modification avec l'ID du recrutement
+  editRecrutement( idRec:number): void {
+    this.router.navigate(['/modifier-recrutement', idRec]); 
   }
 
   

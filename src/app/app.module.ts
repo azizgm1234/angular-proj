@@ -68,7 +68,7 @@ import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+  
   ],
   
   providers: [],
