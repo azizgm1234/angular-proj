@@ -21,11 +21,11 @@ export class ServicerecrutementService {
   addRecrutement(recrutement: Recrutement): Observable<any> {
     return this.http.post<Recrutement>(`${this.apiUrl}/addRecrutement`, recrutement);
   }  
-
+/*
  updateRecrut(recrutement: Recrutement, idRec: number): Observable<Recrutement> {
     return this.http.put<Recrutement>(`${this.apiUrl}/updateRecrutement/${idRec}`, recrutement);
   } 
- 
+ */
     removeRecrutement(idRec: number): Observable<void> {
       return this.http.delete<void>(`${this.apiUrl}/deleteRec/${idRec}`);
     }
@@ -38,9 +38,9 @@ export class ServicerecrutementService {
       return this.http.get<Recrutement>(`${this.apiUrl}/getRecrutementById/${idRec}`);
     }  
 
-/*
+
     updateRecrut(recrutement: Recrutement): Observable<Recrutement> {
       return this.http.put<Recrutement>(`${this.apiUrl}/updateRecrutement`, recrutement);
     }
-   */
+   
 }

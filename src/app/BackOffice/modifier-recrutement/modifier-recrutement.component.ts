@@ -19,36 +19,39 @@ export class ModifierRecrutementComponent implements OnInit {
 
   idRec: number | undefined ;
   recrutementForm!: FormGroup;
-  
-  typeRecrutementOptions = [TypeRecrutement.OFFRE_EMPLOI, TypeRecrutement.ETUDIANT]; // Options pour le champ typeRecrutement
+   
+ // typeRecrutementOptions = ['OFFRE_EMPLOI', 'ETUDIANT'];
+ typeRecrutementOptions = [TypeRecrutement.OFFRE_EMPLOI, TypeRecrutement.ETUDIANT]; // Options pour le champ typeRecrutement
 
   ngOnInit(): void {
     this.initForm();
     this.route.queryParams.subscribe(params => {
       this.idRec = +params['id'];
     });
-  }
+  } 
 
-  onSubmit(): void {
-    if (this.recrutementForm.valid && this.idRec) {
-      const recrutements = this.recrutementForm.value;
-      this.recrutementservice.updateRecrut(recrutements, this.idRec).subscribe(
-        (idRec) => {
-          console.log('recruitment edited successfully with ID:', idRec);
-          window.location.reload();
-        },
-        (error) => {
-          console.error("ma tbadltech o ma narfch aleh ", error);
-        }
-      );
-    }
+
+onSubmit(): void {
+  if (!this.recrutementForm.valid) {
+    return; 
+  }
+  const formData = this.recrutementForm.value;  
+  this.recrutementservice.updateRecrut(formData).subscribe(
+    (candidat: any) => {
+      console.log('candidat added successfully with ID:', candidat);
+      window.alert('ur update is done ');
+      this.recrutementForm.reset();
+    },
+    (error: any) => {
+      console.error('Error adding candidat:', error);
+    })
   }
 
   private initForm(): void {
     this.recrutementForm = this.fb.group({
       poste: [''],
       lieu: ['', Validators.required],
-      typeRecrutement: [TypeRecrutement.OFFRE_EMPLOI || TypeRecrutement.ETUDIANT, Validators.required],
+      typeRecrutement: ['',Validators.required],
       objectifs: ['', Validators.required], 
       problematique: ['', Validators.required],
       travailDemande: ['', Validators.required],
@@ -67,7 +70,7 @@ export class ModifierRecrutementComponent implements OnInit {
       motsCles: ['', Validators.required],
    
     });
-    console.log(JSON.stringify(this.recrutementForm.value));
+   console.log(JSON.stringify(this.recrutementForm.value));
 
   }
 }
