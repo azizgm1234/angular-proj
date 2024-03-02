@@ -24,7 +24,9 @@ export class AllrecrutementComponent implements OnInit {
       this.recrutements = data;
     });
 
-    
 
-}
+
+    
+  }
+
 }

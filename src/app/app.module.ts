@@ -27,6 +27,7 @@ import { ModifierRecrutementComponent } from './BackOffice/modifier-recrutement/
 import { FormsModule } from '@angular/forms';
 import { AllrecrutementComponent } from './FrontOffice/allrecrutement/allrecrutement.component';
 import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -49,9 +50,7 @@ import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
     ModifierRecrutementComponent,
     AllrecrutementComponent,
     CandidatComponent,
- 
-
-
+   
    
 
     
@@ -68,7 +67,10 @@ import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-   
+    BrowserModule,
+    Ng2SearchPipeModule
+
+
   ],
   
   providers: [],

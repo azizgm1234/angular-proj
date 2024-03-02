@@ -97,6 +97,14 @@
                     <input class="form-control" type="text" name="motsCles" id="motsCles" formControlName="motsCles" required>
                   </div>
                 </div>
+                <div class="mb-3">
+                  <label for="typeRecrutement" class="form-label">Type de Recrutement</label>
+                  <select class="form-select" name="typeRecrutement" id="typeRecrutement" formControlName="typeRecrutement" required>
+                    <option value="" disabled selected>Choisir le type de recrutement</option>
+                    <option value="OFFRE_EMPLOI">Offre d'emploi</option>
+                    <option value="ETUDIANT">Recrutement étudiant</option>
+                  </select>
+                </div>
               </div>
               <div class="d-flex justify-content-between mt-4">
                 <button type="submit" [disabled]="recrutementForm.invalid" class="btn btn-primary">Modifier Recrutement</button>

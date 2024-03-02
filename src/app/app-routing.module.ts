@@ -43,8 +43,7 @@ const routes: Routes = [
       { path: 'recrutement', component: RecrutementComponent},
       { path: 'modifier-recrutement/:id', component:  ModifierRecrutementComponent },
    //   { path: 'modifier-recrutement/:id', component: ModifierRecrutementComponent }
-   //{ path: '', redirectTo: '/recrutement', pathMatch: 'full' },
-
+  
     ]
 
   },
