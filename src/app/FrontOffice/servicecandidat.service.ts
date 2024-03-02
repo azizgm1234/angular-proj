@@ -7,15 +7,22 @@ import { Candidat } from './Candidat/candidat.model';
   providedIn: 'root'
 })
 export class ServicecandidatService {
-  private apiUrl = 'http://localhost:8080'; // URL de votre backend Spring
-
+  
   constructor(private http: HttpClient) { }
-
+  private apiUrl = 'http://localhost:8081/recrutement';
+  
+    addCandidat(candidat: Candidat):  Observable<any> {
+      return this.http.post<Candidat>(`${this.apiUrl}/addcand`,candidat);
+    }
+  
+  
   getAllCandidats(): Observable<Candidat[]> {
     return this.http.get<Candidat[]>(`${this.apiUrl}/retrieveAllC`);
   }
 
-  addCandidat(candidat: Candidat): Observable<Candidat> {
-    return this.http.post<Candidat>(`${this.apiUrl}/addCand`, candidat);
+ 
+  removeCandidat(idRec: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/deleteRec/${idRec}`);
   }
+
 }
