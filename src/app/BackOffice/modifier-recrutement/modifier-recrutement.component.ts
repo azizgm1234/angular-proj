@@ -3,9 +3,9 @@ import { ServicerecrutementService } from '../servicerecrutement.service';
 import { Recrutement } from '../recrutement.model';
 import { ActivatedRoute, Route } from '@angular/router';
 import { TypeRecrutement } from '../addrecrutement/typeRecrutement.enum';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-modifier-recrutement',
@@ -13,25 +13,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./modifier-recrutement.component.css']
 })
 
-
 export class ModifierRecrutementComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,private fb: FormBuilder, private recrutementservice:ServicerecrutementService){}
 
-
-
   idRec: number | undefined ;
   recrutementForm!: FormGroup;
+  
+  typeRecrutementOptions = [TypeRecrutement.OFFRE_EMPLOI, TypeRecrutement.ETUDIANT]; // Options pour le champ typeRecrutement
 
   ngOnInit(): void {
     this.initForm();
     this.route.queryParams.subscribe(params => {
       this.idRec = +params['id'];
-      
     });
-    
-  
   }
+
   onSubmit(): void {
     if (this.recrutementForm.valid && this.idRec) {
       const recrutements = this.recrutementForm.value;
@@ -41,7 +38,7 @@ export class ModifierRecrutementComponent implements OnInit {
           window.location.reload();
         },
         (error) => {
-          console.error("erreur", error);
+          console.error("ma tbadltech o ma narfch aleh ", error);
         }
       );
     }
@@ -49,10 +46,10 @@ export class ModifierRecrutementComponent implements OnInit {
 
   private initForm(): void {
     this.recrutementForm = this.fb.group({
-      poste: ['', Validators.required],
+      poste: [''],
       lieu: ['', Validators.required],
-      typeRecrutement: [TypeRecrutement.OFFRE_EMPLOI || TypeRecrutement.ETUDIANT],
-      objectifs: ['', [Validators.required, Validators.email]],
+      typeRecrutement: [TypeRecrutement.OFFRE_EMPLOI || TypeRecrutement.ETUDIANT, Validators.required],
+      objectifs: ['', Validators.required], 
       problematique: ['', Validators.required],
       travailDemande: ['', Validators.required],
       postesVacants: ['', Validators.required],
@@ -68,12 +65,12 @@ export class ModifierRecrutementComponent implements OnInit {
       statut: ['', Validators.required],
       criteresSelection: ['', Validators.required],
       motsCles: ['', Validators.required],
-      // Add other form controls as needed
-    });}
+   
+    });
+    console.log(JSON.stringify(this.recrutementForm.value));
+
+  }
 }
-
-
-
 
 
 
