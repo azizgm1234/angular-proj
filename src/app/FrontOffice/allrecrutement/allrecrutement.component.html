@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <h1>Liste des Recrutements</h1>
-      <hr> 
+  
     </div>
   </div>
   
@@ -10,16 +10,14 @@
     <div class="col" *ngFor="let recrutement of recrutements">
       <div class="card mb-3">
         <div class="card-body">
-          <h5 class="card-title"> {{ recrutement.poste }}</h5>
-          <p class="card-text">Type de recrutement : {{ recrutement.typeRecrutement }}</p>
-          <p class="card-text">Lieu : {{ recrutement.lieu }}</p>
-          <p class="card-text">type de Recrutement : {{ recrutement.typeRecrutement }}</p>
+          <h1 class="card-title"> {{ recrutement.poste }}</h1> <p class="card-text">Type de recrutement : {{ recrutement.typeRecrutement }}</p>
+          <p class="card-text"> {{ recrutement.lieu }}</p>
+  
           <p class="card-text">postes Vacants : {{ recrutement.postesVacants }}</p>
           <p class="card-text">experience : {{ recrutement.experience }}</p>
           <p class="card-text">niveau D'étude : {{ recrutement.niveauDetude }}</p>
           <p class="card-text">salaire : {{ recrutement.salaire }}</p>
        
-          <a href="#" class="btn btn-primary">postuler</a> <!-- Ajoutez un lien pour voir les détails -->
+          <a href="candidat" class="btn btn-primary">postuler</a> <!-- Ajoutez un lien pour voir les détails -->
         </div>
       </div>
-      

@@ -25,9 +25,7 @@ export class ServicerecrutementService {
  updateRecrut(recrutement: Recrutement, idRec: number): Observable<Recrutement> {
     return this.http.put<Recrutement>(`${this.apiUrl}/updateRecrutement/${idRec}`, recrutement);
   } 
-
-
-    
+ 
     removeRecrutement(idRec: number): Observable<void> {
       return this.http.delete<void>(`${this.apiUrl}/deleteRec/${idRec}`);
     }

@@ -17,4 +17,8 @@ export class ServicefrontrecrutementService {
   getAll(): Observable<Recrutement[]> {
     return this.http.get<Recrutement[]>(this.apiUrl);
   }
+
+
+
+  
 }
