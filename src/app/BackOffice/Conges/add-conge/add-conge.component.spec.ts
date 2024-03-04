@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplateBComponent } from './template-b.component';
+import { AddCongeComponent } from './add-conge.component';
 
-describe('TemplateBComponent', () => {
-  let component: TemplateBComponent;
-  let fixture: ComponentFixture<TemplateBComponent>;
+describe('AddCongeComponent', () => {
+  let component: AddCongeComponent;
+  let fixture: ComponentFixture<AddCongeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplateBComponent ]
+      declarations: [ AddCongeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TemplateBComponent);
+    fixture = TestBed.createComponent(AddCongeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('TemplateBComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });

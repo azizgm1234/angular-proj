@@ -8,12 +8,26 @@ import { Router } from '@angular/router';
 export class SidebarBackComponent {
   constructor(private router: Router) {}
   isDashboardListExpanded = true;
+  absences = false;
+  listAbsences = false;
   user = false;
   wallet = false;
+  conge = false;
+  employe = false;
+  departement = false;
 
   // Function to toggle the Dashboard list expansion
   toggleDashboardList() {
     this.isDashboardListExpanded = !this.isDashboardListExpanded;
+  }
+  toggleAbsences() {
+    this.absences = !this.absences;
+  }
+  toggleConges() {
+    this.conge = !this.conge;
+  }
+  toggleListAbsences() {
+    this.listAbsences = !this.listAbsences;
   }
   toggleUserList() {
     this.user = !this.user;
@@ -22,6 +36,12 @@ export class SidebarBackComponent {
     this.wallet = !this.wallet;
   }
 
+  toggleDepartementList() {
+    this.departement = !this.departement;
+  }
+  toggleEmployeList(){
+    this.employe = !this.employe;
+  }
   isRouteActive(route: string): boolean {
     return this.router.isActive(route, true);
   }

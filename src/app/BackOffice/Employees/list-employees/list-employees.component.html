@@ -1,0 +1,55 @@
+<main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+    <div class="title-group mb-3">
+        <h1 class="h2 mb-0">Employees</h1>
+    </div>
+
+    <div class="row my-4" *ngFor="let employee of employees">
+        <div class="col-lg-12 col-12">
+            <div class="custom-block custom-block-transation-detail bg-white">
+                <div class="d-flex flex-wrap align-items-center border-bottom pb-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <!-- Replace the image source with the appropriate property from your employee model -->
+                        <div>
+                            <!-- Display employee-related properties here -->
+                            <p>{{ employee.posteEmployee }}</p>
+                            <p>Email: {{ employee.userId }}</p>
+                            <!-- Add other employee-related properties here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center">
+                    <div class="custom-block-transation-detail-item mt-4">
+                        <h6>Poste Employee</h6>
+                        <p>{{ employee.posteEmployee }}</p>
+                    </div>
+
+                    <div class="custom-block-transation-detail-item mt-4 mx-auto px-4">
+                        <h6>Date Embauche</h6>
+                        <p>{{ employee.date_embauche | date }}</p>
+                    </div>
+
+                    <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                        <h6>Department</h6>
+                        <p>{{ employee.departement.libelle }}</p>
+                    </div>
+
+                    <div class="custom-block-transation-detail-item mt-4 ms-lg-auto px-lg-3 px-md-3">
+                        <h6>Team</h6>
+                        <p>{{ employee.team.teamName }}</p>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-4">
+                        <div class="custom-block-transation-detail-item me-2">
+                            <button type="button" class="btn btn-outline-danger" (click)="removeEmployee(employee.id_employe)">Delete</button>
+                        </div>
+                        <div class="custom-block-transation-detail-item ms-2">
+                            <!-- Update the router link based on your routing configuration -->
+                            <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/editEmployees/' + employee.id_employe]">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

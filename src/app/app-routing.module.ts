@@ -10,6 +10,13 @@ import { TemplateBComponent } from './BackOffice/template-b/template-b.component
 import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
 import { AddclientComponent } from './BackOffice/addclient/addclient.component';
 import { ClientsComponent } from './BackOffice/clients/clients.component';
+import { AbsenceComponent } from './BackOffice/Absences/absence/absence.component';
+import { AbsenceListComponent } from './BackOffice/Absences/list-absence/list-absence.component';
+import { AddCongeComponent } from './BackOffice/Conges/add-conge/add-conge.component';
+import { AddEmployeeComponent } from './BackOffice/Employees/add-employee/add-employee.component';
+import { AddDepartementComponent } from './BackOffice/Departement/add-departement/add-departement.component';
+import { ListEmployeesComponent } from './BackOffice/Employees/list-employees/list-employees.component';
+import { ListDepartementComponent } from './BackOffice/Departement/list-departement/list-departement.component';
 
 const routes: Routes = [
   {
@@ -23,8 +30,17 @@ const routes: Routes = [
     component:TemplateBComponent,
     children: [
       { path: 'homeb', component: HomeBackComponent },
-      { path: 'clients', component: ClientsComponent },
-      { path: 'addclient', component: AddclientComponent }]
+      { path: 'addemployees', component: AddEmployeeComponent },
+      { path: 'editEmployees/:id', component: AddEmployeeComponent },
+      { path: 'EditAbsence/:id', component: AbsenceComponent },
+      { path: 'addAbsences', component: AbsenceComponent },
+      { path: 'listAbsences', component: AbsenceListComponent },
+      { path: 'listEmployees', component: ListEmployeesComponent },
+      { path: 'addConges', component: AddCongeComponent },
+      { path: 'addDepartments', component: AddDepartementComponent },
+      { path: 'EditDepartement/:id', component: AddDepartementComponent },
+      { path: 'listDepartments', component: ListDepartementComponent },
+    ]
   },
   
 ];

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -20,6 +20,13 @@ import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientsComponent } from './BackOffice/clients/clients.component';
 import { AddclientComponent } from './BackOffice/addclient/addclient.component';
+import { AbsenceComponent } from './BackOffice/Absences/absence/absence.component';
+import { AddEmployeeComponent } from './BackOffice/Employees/add-employee/add-employee.component';
+import { AbsenceListComponent } from './BackOffice/Absences/list-absence/list-absence.component';
+import { AddCongeComponent } from './BackOffice/Conges/add-conge/add-conge.component';
+import { AddDepartementComponent } from './BackOffice/Departement/add-departement/add-departement.component';
+import { ListEmployeesComponent } from './BackOffice/Employees/list-employees/list-employees.component';
+import { ListDepartementComponent } from './BackOffice/Departement/list-departement/list-departement.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +41,13 @@ import { AddclientComponent } from './BackOffice/addclient/addclient.component';
     HomeBackComponent,
     ClientsComponent,
     AddclientComponent,
-
-    
+    AddEmployeeComponent,
+    AbsenceComponent,
+    AbsenceListComponent,
+    AddCongeComponent,
+    AddDepartementComponent,
+    ListEmployeesComponent,
+    ListDepartementComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +58,8 @@ import { AddclientComponent } from './BackOffice/addclient/addclient.component';
     MatListModule,
     MatIconModule,
     HttpClientModule,
-    ReactiveFormsModule
-    
-    
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

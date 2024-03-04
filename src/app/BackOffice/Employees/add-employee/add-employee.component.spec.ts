@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplateBComponent } from './template-b.component';
+import { AddEmployeeComponent } from './add-employee.component';
 
-describe('TemplateBComponent', () => {
-  let component: TemplateBComponent;
-  let fixture: ComponentFixture<TemplateBComponent>;
+describe('AddEmployeeComponent', () => {
+  let component: AddEmployeeComponent;
+  let fixture: ComponentFixture<AddEmployeeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplateBComponent ]
+      declarations: [ AddEmployeeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TemplateBComponent);
+    fixture = TestBed.createComponent(AddEmployeeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('TemplateBComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });

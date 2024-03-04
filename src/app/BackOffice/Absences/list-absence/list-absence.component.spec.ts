@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplateBComponent } from './template-b.component';
+import { ListAbsenceComponent } from './list-absence.component';
 
-describe('TemplateBComponent', () => {
-  let component: TemplateBComponent;
-  let fixture: ComponentFixture<TemplateBComponent>;
+describe('ListAbsenceComponent', () => {
+  let component: ListAbsenceComponent;
+  let fixture: ComponentFixture<ListAbsenceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplateBComponent ]
+      declarations: [ ListAbsenceComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TemplateBComponent);
+    fixture = TestBed.createComponent(ListAbsenceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('TemplateBComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });
