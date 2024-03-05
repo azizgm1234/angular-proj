@@ -1,10 +1,10 @@
 import { Employee } from './employee.model';
+import { Note } from './note.model';
 
 export interface PerformanceEmployee {
-  id_absence?: number;
-  motif: string;
-  justification: string;
-  date: Date;
-  validee: boolean;
+  id_performance?: number;
+  note: number;
+  commentaire: string;
   emp?: Employee;
+  notes?:Note[];
 }

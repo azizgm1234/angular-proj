@@ -12,18 +12,13 @@
                         <div>
                             <!-- Display employee-related properties here -->
                             <p>{{ employee.posteEmployee }}</p>
-                            <p>Email: {{ employee.userId }}</p>
+                            <p>Email: {{ employee.id_employe }}</p>
                             <!-- Add other employee-related properties here -->
                         </div>
                     </div>
                 </div>
 
                 <div class="d-flex flex-wrap align-items-center">
-                    <div class="custom-block-transation-detail-item mt-4">
-                        <h6>Poste Employee</h6>
-                        <p>{{ employee.posteEmployee }}</p>
-                    </div>
-
                     <div class="custom-block-transation-detail-item mt-4 mx-auto px-4">
                         <h6>Date Embauche</h6>
                         <p>{{ employee.date_embauche | date }}</p>
@@ -31,21 +26,26 @@
 
                     <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
                         <h6>Department</h6>
-                        <p>{{ employee.departement.libelle }}</p>
+                        <p>{{ employee.departement?.libelle }}</p>
                     </div>
 
-                    <div class="custom-block-transation-detail-item mt-4 ms-lg-auto px-lg-3 px-md-3">
+                    <!-- <div class="custom-block-transation-detail-item mt-4 ms-lg-auto px-lg-3 px-md-3">
                         <h6>Team</h6>
                         <p>{{ employee.team.teamName }}</p>
-                    </div>
+                    </div> -->
 
                     <div class="d-flex justify-content-center mt-4">
                         <div class="custom-block-transation-detail-item me-2">
                             <button type="button" class="btn btn-outline-danger" (click)="removeEmployee(employee.id_employe)">Delete</button>
                         </div>
                         <div class="custom-block-transation-detail-item ms-2">
-                            <!-- Update the router link based on your routing configuration -->
                             <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/editEmployees/' + employee.id_employe]">Edit</button>
+                        </div>
+                        <div class="custom-block-transation-detail-item ms-2">
+                            <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addConges/' + employee.id_employe]">add Conge </button>
+                        </div>
+                        <div class="custom-block-transation-detail-item ms-2">
+                            <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addAbsences/' + employee.id_employe]">add absence </button>
                         </div>
                     </div>
                 </div>

@@ -32,6 +32,6 @@ export class AbsenceListComponent implements OnInit {
                 this.absences = datas as any[];
             }); 
         });
-    }
+    }  
 }
 }

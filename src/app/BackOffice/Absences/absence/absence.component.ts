@@ -12,6 +12,7 @@ export class AbsenceComponent implements OnInit {
   AbsenceForm!: FormGroup;
   isEditMode: boolean = false;
   absenceId: number | null = null; 
+  employeeId: number | null = null; 
   
   constructor(private fb: FormBuilder,
     private absenceService: ServiceAbsenceService,
@@ -22,8 +23,17 @@ export class AbsenceComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm(); 
-    this.checkEditMode();
+    this.checkEditMode(); 
+    this.getEmployee();
  
+  }
+  private getEmployee():void{
+    this.route.params.subscribe(params => {
+      const id = params['p'];
+      if (id) {
+        this.employeeId = +id;
+      }
+    });
   }
   private checkEditMode(): void {
     this.route.params.subscribe(params => {
@@ -68,7 +78,8 @@ export class AbsenceComponent implements OnInit {
           });  
         }
         else{
-        this.absenceService.addAbsence(absenceData).subscribe(
+          if(this.employeeId!== null){
+        this.absenceService.addAbsence(absenceData,this.employeeId).subscribe(
           (clientId) => {
             console.log('Absence added successfully with ID:', clientId);
             window.location.reload();
@@ -78,6 +89,7 @@ export class AbsenceComponent implements OnInit {
           }
         );
       }
+    }
     }
     }
 

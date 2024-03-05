@@ -27,6 +27,8 @@ import { AddCongeComponent } from './BackOffice/Conges/add-conge/add-conge.compo
 import { AddDepartementComponent } from './BackOffice/Departement/add-departement/add-departement.component';
 import { ListEmployeesComponent } from './BackOffice/Employees/list-employees/list-employees.component';
 import { ListDepartementComponent } from './BackOffice/Departement/list-departement/list-departement.component';
+import { ListCongeComponent } from './BackOffice/Conges/list-conge/list-conge.component';
+import { AddNoteComponent } from './BackOffice/Note/add-note/add-note.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { ListDepartementComponent } from './BackOffice/Departement/list-departem
     AddCongeComponent,
     AddDepartementComponent,
     ListEmployeesComponent,
-    ListDepartementComponent
+    ListDepartementComponent,
+    ListCongeComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,

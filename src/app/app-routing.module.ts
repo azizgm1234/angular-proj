@@ -17,6 +17,8 @@ import { AddEmployeeComponent } from './BackOffice/Employees/add-employee/add-em
 import { AddDepartementComponent } from './BackOffice/Departement/add-departement/add-departement.component';
 import { ListEmployeesComponent } from './BackOffice/Employees/list-employees/list-employees.component';
 import { ListDepartementComponent } from './BackOffice/Departement/list-departement/list-departement.component';
+import { ListCongeComponent } from './BackOffice/Conges/list-conge/list-conge.component';
+import { AddNoteComponent } from './BackOffice/Note/add-note/add-note.component';
 
 const routes: Routes = [
   {
@@ -33,13 +35,16 @@ const routes: Routes = [
       { path: 'addemployees', component: AddEmployeeComponent },
       { path: 'editEmployees/:id', component: AddEmployeeComponent },
       { path: 'EditAbsence/:id', component: AbsenceComponent },
-      { path: 'addAbsences', component: AbsenceComponent },
+      { path: 'addAbsences/:p', component: AbsenceComponent },
       { path: 'listAbsences', component: AbsenceListComponent },
       { path: 'listEmployees', component: ListEmployeesComponent },
-      { path: 'addConges', component: AddCongeComponent },
+      { path: 'addConges/:p', component: AddCongeComponent },
+      { path: 'EditConge/:id', component: AddCongeComponent },
+      { path: 'listConge', component: ListCongeComponent },
       { path: 'addDepartments', component: AddDepartementComponent },
       { path: 'EditDepartement/:id', component: AddDepartementComponent },
       { path: 'listDepartments', component: ListDepartementComponent },
+      { path: 'addNote', component: AddNoteComponent },
     ]
   },
   

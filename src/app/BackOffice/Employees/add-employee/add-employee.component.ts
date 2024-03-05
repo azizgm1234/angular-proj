@@ -57,7 +57,6 @@ export class AddEmployeeComponent implements OnInit {
   
   private checkEditMode(): void {
     
-
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {

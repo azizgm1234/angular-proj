@@ -19,7 +19,7 @@
                                 <label for="date_embauche" class="form-label">Date Embauche</label>
                                 <input class="form-control" type="date" name="date_embauche" id="date_embauche" formControlName="date_embauche" required>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3"> 
                                 <label for="posteEmployee" class="form-label">Poste Employee</label>
                                 <select class="form-select" formControlName="posteEmployee">
                                     <option *ngFor="let poste of postes" [value]="poste">{{ poste }}</option>

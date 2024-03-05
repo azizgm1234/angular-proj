@@ -27,23 +27,22 @@
                             </div>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" aria-current="page" mat-button (click)="toggleAbsences()"  [ngClass]="{'active': isRouteActive('/admin/addAbsences') || isRouteActive('/admin/listAbsences') } ">
+                            <a class="nav-link" aria-current="page" mat-button (click)="toggleAbsences()"  [ngClass]="{'active': isRouteActive('/admin/listAbsences') } ">
                               <i class="bi-person me-2"></i>
                               Absences
                             </a>
                             <div *ngIf="absences">
-                              <!-- <a mat-list-item routerLink="/admin/clients">All Clients</a> -->
-                              <a mat-list-item routerLink="/admin/addAbsences">Add Absences</a>
                               <a mat-list-item routerLink="/admin/listAbsences">List Absences</a>
                             </div>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" aria-current="page" mat-button (click)="toggleConges()"  [ngClass]="{'active': isRouteActive('/admin/addConges')} ">
+                            <a class="nav-link" aria-current="page" mat-button (click)="toggleConges()"  [ngClass]="{'active': isRouteActive('/admin/EditConge')} ">
                               <i class="bi-person me-2"></i>
                               Conges
                             </a>
                             <div *ngIf="conge">
-                              <a mat-list-item routerLink="/admin/addConges">Add Conge</a>
+                              <a mat-list-item routerLink="/admin/listConge">List Conge</a>
+
                             </div>
                           </li>
                           <li class="nav-item">

@@ -19,8 +19,8 @@ export class ServiceCongeService {
     return this.http.delete(this.URL + "/deleteConge/" + id);
 
   }
-  addConge(conge: Conge): Observable<number> {
-    return this.http.post<number>(`${this.URL}/saveConge`, conge);  
+  addConge(conge: Conge,p:number): Observable<number> {
+    return this.http.post<number>(`${this.URL}/saveConge/`+p, conge);  
   }
 
   getConge(id: number): Observable<Conge>{
@@ -28,6 +28,6 @@ export class ServiceCongeService {
   }
 
   updateConge(id: number, updatedconge: Conge): Observable<Conge> {
-    return this.http.put<Conge>(this.URL + "/updateConge/" + id, updatedconge);
+    return this.http.put<any>(this.URL + "/updateConge/" + id, updatedconge);
   }
 }

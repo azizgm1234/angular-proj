@@ -24,13 +24,17 @@
                                 <input class="form-control" type="date" id="date_fin" formControlName="date_fin" required>
                             </div>
                             <div class="mb-3">
-                                <label for="CongeType" class="form-label">Conge Type</label>
-                                <input class="form-control" type="text" id="CongeType" placeholder="Enter conge type" formControlName="CongeType" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="CongeStatut" class="form-label">Conge Statut</label>
-                                <input class="form-control" type="text" id="CongeStatut" placeholder="Enter conge statut" formControlName="CongeStatut" required>
-                            </div>
+                                <label for="typeC" class="form-label">Conge Type</label>
+                                <select class="form-select" formControlName="typeC">
+                                    <option *ngFor="let poste of postes" [value]="poste">{{ poste }}</option>
+                                </select>                            
+                            </div>  
+                            <div *ngIf="isEditMode" class="mb-3">
+                                <label for="typeC" class="form-label">Conge Type</label>
+                                <select class="form-select" formControlName="StatutC">
+                                  <option *ngFor="let poste of status" [value]="poste">{{ poste }}</option>
+                                </select>
+                              </div> 
                             <div class="mb-3">
                                 <label for="commentaire" class="form-label">Commentaire</label>
                                 <input class="form-control" type="text" id="commentaire" placeholder="Enter commentaire" formControlName="commentaire" required>
@@ -46,7 +50,7 @@
                                 </button>
                             
                                 <button type="submit" [disabled]="CongeForm.invalid" class="btn btn-primary ms-2">
-                                  {{ isEditMode ? 'Update Absence' : 'Add Absence' }}
+                                  {{ isEditMode ? 'Update Conge' : 'Add Conge' }}
                                 </button>
                               </div>
                         </form>

@@ -19,8 +19,8 @@ export class ServiceAbsenceService {
     return this.http.delete(this.URL + "/deleteAbsence/" + id);
 
   }
-  addAbsence(absence: Absence): Observable<number> {
-    return this.http.post<number>(`${this.URL}/addAbsence`, absence);
+  addAbsence(absence: Absence,p:number): Observable<number> {
+    return this.http.post<number>(`${this.URL}/addAbsence/`+p, absence);
   }
 
   getAbsence(id: number): Observable<Absence>{

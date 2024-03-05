@@ -1,6 +1,8 @@
+import { StatutC } from './../../../core/models/conge.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { typeC } from 'src/app/core/models/conge.model';
 import { ServiceCongeService } from 'src/app/core/services/service-conge.service';
 
 @Component({
@@ -11,7 +13,12 @@ import { ServiceCongeService } from 'src/app/core/services/service-conge.service
 export class AddCongeComponent implements OnInit  {
   CongeForm!: FormGroup;
   isEditMode: boolean = false;
-  congeId: number | null = null;  
+  congeId: number | null = null; 
+  employeeId: number | null = null; 
+
+  postes  = Object.values(typeC).filter(value => typeof value === 'string').sort();
+  status  = Object.values(StatutC).filter(value => typeof value === 'string').sort();
+
   constructor(private fb: FormBuilder,
     private congeService: ServiceCongeService,
     private route: ActivatedRoute,
@@ -21,8 +28,16 @@ export class AddCongeComponent implements OnInit  {
     ngOnInit(): void {
       this.initForm(); 
       this.checkEditMode();
+      this.getEmployee();
     }
-
+    private getEmployee():void{
+      this.route.params.subscribe(params => {
+        const id = params['p'];
+        if (id) {
+          this.employeeId = +id;
+        }
+      });
+    }
     private checkEditMode(): void {
       this.route.params.subscribe(params => {
         const id = params['id'];
@@ -42,20 +57,20 @@ export class AddCongeComponent implements OnInit  {
           this.CongeForm.patchValue({
             date_debut: dateD.toISOString().split('T')[0],
             date_fin: dateF.toISOString().split('T')[0],
-            CongeType: conge.CongeType,
-            CongeStatut: conge.CongeStatut,
+            typeC : conge.typeC,
+            StatutC: conge.StatutC,
             commentaire: conge.commentaire,
             justification: conge.justification
           });
-        });
+        });  
       }
     }
     private initForm(): void {  
       this.CongeForm = this.fb.group({
         date_debut: ['', Validators.required],
         date_fin: ['', Validators.required],
-        CongeType: ['', Validators.required],
-        CongeStatut: ['', Validators.required],
+        typeC: ['', Validators.required],
+        StatutC: ['', this.isEditMode ? Validators.required : null],
         commentaire: ['', Validators.required],
         justification: ['', Validators.required],
       });}
@@ -69,7 +84,8 @@ export class AddCongeComponent implements OnInit  {
             });
           }
           else{
-          this.congeService.addConge(CongeData).subscribe(
+            if(this.employeeId!==null){
+          this.congeService.addConge(CongeData,this.employeeId).subscribe(
             (clientId) => {
               console.log('Conge added successfully with ID:', clientId);
               window.location.reload();
@@ -79,6 +95,7 @@ export class AddCongeComponent implements OnInit  {
             }
           );
         }
+      }
       }
       }
 

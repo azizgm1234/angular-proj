@@ -4,8 +4,8 @@ export interface Conge {
     id_conge?: number;
     date_debut: Date;
     date_fin: Date;
-    CongeType: typeC;
-    CongeStatut: StatutC;
+    typeC: typeC;
+    StatutC: StatutC;
     commentaire: String;
     justification: String;
     emp?: Employee;
