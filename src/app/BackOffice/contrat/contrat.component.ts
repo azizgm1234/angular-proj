@@ -46,13 +46,15 @@ export class ContratComponent  implements OnInit{
   }
 
 
-
+  navigateToaddContracts(id: number): void {
+    this.router.navigate(['/admin/addcontrat'], { queryParams: { id: id } });
+  }
 
   navtoeditcontrat(idcont: number): void {
     this.router.navigate(['/admin/editcontrat'], { queryParams: { id: idcont } });
   }
-  navtofacture(id: number,idcont: number): void {
-    this.router.navigate(['/admin/facture'], { queryParams: {idcli: this.id,id: idcont}});
+  navtofacture(id: number,idcont: number,total:number): void {
+    this.router.navigate(['/admin/facture'], { queryParams: {idcli: this.id,id: idcont,total:total}});
   }
 
   }

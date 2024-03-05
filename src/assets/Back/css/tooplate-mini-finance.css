@@ -786,7 +786,7 @@ strong {
   SEARCH, PROFILE FORM               
 -----------------------------------------*/
 .profile-form .input-group .form-control {
-  background: #e9ecef;
+  background: #004cff71;
 }
 
 .profile-form .profile-image {
@@ -905,7 +905,8 @@ strong {
 -----------------------------------------*/
 .custom-form .form-control {
   color: var(--p-color);
-  border-radius: var(--border-radius-large);
+  background-color: rgba(128, 128, 128, 0.101);
+  border-radius: 6px;
   font-size: var(--menu-font-size);
   margin-bottom: 24px;
   padding: 10px 20px;

@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceclientService } from "../serviceclient.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-facture',
@@ -15,13 +16,15 @@ export class FactureComponent implements OnInit{
   idcontrat: number | undefined;
   idclient: number | undefined;
   factureForm!: FormGroup;
+  totalprix:number| undefined;
 
-  constructor(private route: ActivatedRoute,private fb: FormBuilder, private clientservice:ServiceclientService){}
+  constructor(private route: ActivatedRoute,private router: Router,private fb: FormBuilder, private clientservice:ServiceclientService){}
   @ViewChild('factureFormElement') factureFormElement: ElementRef | undefined;
  ngOnInit(): void {
   this.initForm();
     console.log("onit.......................");
     this.route.queryParams.subscribe(params => {
+      this.totalprix = +params['total'];
       this.idcontrat = +params['id'];
       this.idclient = +params['idcli'];
       console.log(this.idcontrat, this.idclient );
@@ -65,11 +68,10 @@ export class FactureComponent implements OnInit{
   private initForm() {
     this.factureForm = this.fb.group({
       designation: ['', Validators.required],
-      currency: ['', Validators.required],
+      
       invoice_number: [null, Validators.required],
       facture_date: [null, Validators.required],
       due_date: [null, Validators.required],
-      total_amount: [null, Validators.required],
       paid_amount: [null, Validators.required],
       payment_status: ['', Validators.required],
       notes: [''],
@@ -92,4 +94,11 @@ export class FactureComponent implements OnInit{
       );
     }
   }
+
+
+  navtoaddpaiment(idfacture:number): void {
+    console.log("idfacture="+idfacture );
+    this.router.navigate(['/admin/addpaiment'], { queryParams: { id: idfacture} });
+  }
+
 }

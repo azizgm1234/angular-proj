@@ -15,6 +15,7 @@ import { AddcontratComponent } from './BackOffice/addcontrat/addcontrat.componen
 import { EditclientComponent } from './BackOffice/editclient/editclient.component';
 import { EditcontratComponent } from './BackOffice/editcontrat/editcontrat.component';
 import { FactureComponent } from './BackOffice/facture/facture.component';
+import { AddpaimentComponent } from './BackOffice/addpaiment/addpaiment.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
       {path: 'contrat', component: ContratComponent},
       {path: 'addcontrat', component: AddcontratComponent},
       {path: 'editcontrat', component: EditcontratComponent},
-      {path: 'facture', component: FactureComponent}
+      {path: 'facture', component: FactureComponent},
+      {path: 'addpaiment', component: AddpaimentComponent}
        ]
   },  
 ];

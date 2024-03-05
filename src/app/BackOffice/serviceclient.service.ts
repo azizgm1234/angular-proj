@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Client } from './client.model';
 import { Contrat} from './contrat.model';
 import { Facture } from './facture.model';
+import { Paiment } from './paiment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,12 @@ export class ServiceclientService {
   URL = "http://localhost:8080/Clients";
   getall(){
     return this.http.get(this.URL+"/getall");
+  }
+  filtrage(){
+    return this.http.get(this.URL+"/filtrage");
+  }
+  duedate(nombre:number){
+    return this.http.get(this.URL+"/duedate/"+nombre);
   }
   removeClient(id: number): Observable<any> {
     return this.http.delete(this.URL + "/" + id);
@@ -47,5 +54,9 @@ removefacture(id:number): Observable<any> {
 }
 addfacture(facture: Facture , idclient:number,idcontrat:number): Observable<number> {
   return this.http.post<number>(`${this.URL}/addfacture/`+ idclient +"/"+ idcontrat, facture);
+}
+
+addpaiment(paiment : Paiment,idfacture:number):Observable<number>{
+  return this.http.post<number>(`${this.URL}/addpaiment/`+ idfacture, paiment);
 }
 }

@@ -14,3 +14,20 @@
   outline: none;
   transition: all 0.3s;
 }
+.required {
+  color: red;
+}
+.subbtn {
+  display: flex;
+  justify-content: flex-start;
+}
+.subbtn button {
+  width: 150px;
+  border-radius: 5px;
+}
+#total {
+  font-size: 15px;
+}
+.prix {
+  margin-left: 20%;
+}

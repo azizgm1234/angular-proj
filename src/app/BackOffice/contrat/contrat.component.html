@@ -1,13 +1,13 @@
 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-10 px-md-4 border-start">
     <div class="title-group mb-3">
-        <h1 class="h2 mb-0">Contracts</h1>
+        <h1 class="h2 mb-0">Client contracts history</h1>
     </div>
 
     <div class="row my-4">
         <div class="col-lg-12 col-12">
             <div class="custom-block bg-white">
-                <h5 class="mb-4">Client contracts history</h5>
-
+                <div class="addbtn"> <button class="btn btn-primary" type="button"(click)="navigateToaddContracts(id)" >Add <i class="bi bi-file-earmark-plus-fill"></i></button></div>
+               
                 <div class="table-responsive">
                     <table class="account-table table">
                         <thead>
@@ -20,14 +20,14 @@
 
                                 <th scope="col">End Date</th>
 
-                                <th scope="col">Currency</th>
+                               
 
-                                <th scope="col">payment</th>
+                                <th scope="col">Cost</th>
 
                                 <th scope="col">Status</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
+                                <th scope="col">Actions</th>
+                                <th scope="col">Factures</th>
+                               
 
                             </tr>
                         </thead>
@@ -43,25 +43,21 @@
 
                                 <td scope="row">{{Contract.endDate }}</td>
 
-                                <td  scope="row">
-                                   
-                                    {{Contract.currency}}
-                                  
-                                </td>
 
                                 <td scope="row">{{Contract.payment_terms}}</td>
 
                                 <td scope="row">
-                                    <span class="badge text-bg-danger">
+                                    <span class="status">
                                         {{Contract.contract_status}}
                                     </span>
                                 </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-success text-success" (click)="navtoeditcontrat(Contract.idContract)" style="height: 30px; text-align:center; font-size: 14px;">edit</button>
-
-                                 </td>
-                                 <td> <button type="button" class="btn btn-outline-danger" (click)="removecontrat(Contract.idContract)" style="height: 30px; text-align:center; font-size: 14px;">Delete</button></td>
-                                 <td> <button type="button" class="btn btn-outline-danger" (click)="navtofacture(id,Contract.idContract )" style="height: 30px; text-align:center; font-size: 14px;">Factures</button></td>
+                                <td scope="row" class="actions">
+                                    <button (click)="navtoeditcontrat(Contract.idContract)" ><i id="edit" class="bi bi-pencil-fill"></i></button>
+                                   <button (click)="removecontrat(Contract.idContract)"> <i id="delete" class="bi bi-trash-fill"></i></button>
+                                 
+                                </td>
+                                 <td scope="row" class="actions">
+                                 <button (click)="navtofacture(id,Contract.idContract,Contract.payment_terms )"><i id="facture" class="bi bi-receipt"></i></button></td>
                             </tr>
                             
                            

@@ -1,3 +1,7 @@
+import { Client } from "./client.model";
+import {Contrat } from "./contrat.model";
+import { Paiment } from "./paiment.model";
+
 export interface Facture {
     idFacture?: number;
     designation: string;
@@ -11,27 +15,8 @@ export interface Facture {
     notes: string;
     milestoneDescription: string;
     client?: Client;
-    contract?: Contract;
+    contract?: Contrat;
     paiments?: Paiment[];
   }
-  
-  export interface Client {
-    idClient?: number;
-    nom: string;
-    prenom: string;
-    email: string;
-    phone: string;
-    companyAddress: string;
-    factures?: Facture[];
-    paiments?: Paiment[];
-    contracts?: Contract[];
-  }
-  
-  export interface Paiment {
-    // Define the properties of the Paiment entity if needed
-  }
-  
-  export interface Contract {
-    // Define the properties of the Contract entity if needed
-  }
+
   

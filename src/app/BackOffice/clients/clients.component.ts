@@ -24,6 +24,35 @@ export class ClientsComponent implements OnInit{
       this.clients=datas as any[];
     })
   }
+  isFilterApplied = false;
+  /*filtre*/
+  btnfiltrage() {
+    if (this.isFilterApplied) {
+      this.undofiltrage();
+    } else {
+      this.filtrage();
+    }
+    this.isFilterApplied = !this.isFilterApplied;
+  }
+  undofiltrage(): void {
+    console.log("undo");
+    this.clientservice.getall().subscribe((datas)=>{
+      this.clients=datas as any[];
+    })
+  }
+
+  filtrage():void{
+    console.log("filtrage");
+    this.clientservice.filtrage().subscribe((datas)=>{
+      this.clients=datas as any[];
+    })
+  }
+  see(nombre:number):void{
+    console.log("duedate");
+    this.clientservice.duedate(nombre).subscribe((datas)=>{
+      this.clients=datas as any[];
+    })
+  }
 
   /*remove*/
   removeClient(id: number): void {

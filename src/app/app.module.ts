@@ -30,6 +30,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditclientComponent } from './BackOffice/editclient/editclient.component';
 import { EditcontratComponent } from './BackOffice/editcontrat/editcontrat.component';
 import { FactureComponent } from './BackOffice/facture/facture.component';
+import { AddpaimentComponent } from './BackOffice/addpaiment/addpaiment.component';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CalendarModule } from 'angular-calendar';
+import { CalendrierComponent } from './BackOffice/calendrier/calendrier.component';
 
 
 @NgModule({
@@ -49,7 +56,9 @@ import { FactureComponent } from './BackOffice/facture/facture.component';
     AddcontratComponent,
     EditclientComponent,
     EditcontratComponent,
-    FactureComponent
+    FactureComponent,
+    AddpaimentComponent,
+    CalendrierComponent
     
     
 
@@ -69,7 +78,11 @@ import { FactureComponent } from './BackOffice/facture/facture.component';
     NgbDatepickerModule,
     FormsModule,
     NgbDatepicker,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    CalendarModule
 
     
     

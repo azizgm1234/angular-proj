@@ -10,10 +10,25 @@
            <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
             <input class="form-control" name="search" type="text" placeholder="Search Client" aria-label="Search">
         </form>
+       
         <div class="filtres">
-     <button type="button" class="btn btn-primary"><i class="bi bi-funnel"></i> Filtre </button>
-    <button type="button" class="btn btn-outline-primary" disabled><i class="bi bi-file-pdf"></i> Export </button>
+            <div class="dropdown">
+                <button id="filtrebtn" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" [ngClass]="{'filter-applied': isFilterApplied, 'filter-not-applied': !isFilterApplied}">
+                    <i class="bi bi-funnel" ></i>  Filtre
+                </button>
+                <ul class="dropdown-menu">
+                    <li><p>Bills in range</p></li>
+                  <li><a id="t"class="dropdown-item" (click)="see(7)">Week</a></li>
+                  <li><a id="t" class="dropdown-item" (click)="see(30)">Month</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><p>filtre by less Cost</p></li>
+                  <li><a id="t" class="dropdown-item" (click)="btnfiltrage()" >order</a></li>
+                  
+                </ul>
+              </div>
+            <button type="button" class="btn btn-outline-primary" disabled><i class="bi bi-file-pdf"></i> Export </button>
 </div>
+
 </div>
 
                 <div class="table-responsive">
@@ -28,9 +43,10 @@
 
                                 <th scope="col">Company Adress</th>
 
-                                <th scope="col">Not paid Amount</th>
+                                <th scope="col">Amount Left to pay</th>
 
                                 <th scope="col">Actions</th>
+                                <th scope="col">Contracts</th>
                                 
 
                             </tr>
@@ -47,7 +63,7 @@
 
                                 <td scope="row">{{ client.companyAddress }}</td>
 
-                                <td  scope="row">$250</td>
+                                <td  scope="row">{{ client.amount }} DT</td>
 
                                 <td scope="row" class="actions">
                                     <button (click)="navigateToeditclient(client.idClient)"><i id="edit" class="bi bi-pencil-fill"></i></button>
@@ -55,7 +71,11 @@
                                  
                                 </td>
 
-                            
+                                <td scope="row" class="actions">
+                                    
+                                   <button (click)="navigateToContracts(client.idClient)"><i id="contrat" class="bi bi-folder2-open"></i></button>
+                                 
+                                </td>
                                 
                             </tr>
                             
