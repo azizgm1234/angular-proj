@@ -28,6 +28,8 @@ import { FormsModule } from '@angular/forms';
 import { AllrecrutementComponent } from './FrontOffice/allrecrutement/allrecrutement.component';
 import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AllcandidatComponent } from './BackOffice/allcandidat/allcandidat.component';
+
 
 
 
@@ -50,7 +52,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ModifierRecrutementComponent,
     AllrecrutementComponent,
     CandidatComponent,
-   
+    AllcandidatComponent
    
 
     

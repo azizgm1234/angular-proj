@@ -16,6 +16,7 @@ import { RecrutementComponent } from './BackOffice/recrutement/recrutement.compo
 import { ModifierRecrutementComponent } from './BackOffice/modifier-recrutement/modifier-recrutement.component';
 import { AllrecrutementComponent } from './FrontOffice/allrecrutement/allrecrutement.component';
 import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
+import { AllcandidatComponent } from './BackOffice/allcandidat/allcandidat.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'home', component: HomeFrontComponent },
       { path: 'allrecrutement.html', component: AllrecrutementComponent },
       { path: 'candidat', component: CandidatComponent },
+      
       { path: 'updateRecrutement/:id', component: ModifierRecrutementComponent }
    
     
@@ -42,6 +44,7 @@ const routes: Routes = [
       { path: 'addrecrutement', component: AddrecrutementComponent},
       { path: 'recrutement', component: RecrutementComponent},
       { path: 'modifier-recrutement/:id', component:  ModifierRecrutementComponent },
+      { path: 'allcandidat', component: AllcandidatComponent },
    //   { path: 'modifier-recrutement/:id', component: ModifierRecrutementComponent }
   
     ]

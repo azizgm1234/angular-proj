@@ -3,7 +3,6 @@ import { ServicerecrutementService } from '../servicerecrutement.service';
 import { Recrutement } from '../recrutement.model';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Validators } from '@angular/forms';
 
 
 @Component({
