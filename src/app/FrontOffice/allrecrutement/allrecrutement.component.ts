@@ -13,20 +13,18 @@ import { Router } from '@angular/router';
 })
 
 export class AllrecrutementComponent implements OnInit {
- // recrutements: RecruitmentFrontend[] = [];
- recrutements: Recrutement[] = [];
+ 
+  recrutements: Recrutement[] = [];
+ 
+   
+   constructor(private router: Router, private recrutementService: ServicerecrutementService) {}
+ 
+   ngOnInit(): void {
+     this.recrutementService.getAll().subscribe((data: Recrutement[]) => {
+       this.recrutements = data;
+     });
+ 
+}
 
-  
-  constructor(private router: Router, private recrutementService: ServicerecrutementService) {}
-
-  ngOnInit(): void {
-    this.recrutementService.getAll().subscribe((data: Recrutement[]) => {
-      this.recrutements = data;
-    });
-
-
-
-    
-  }
 
 }

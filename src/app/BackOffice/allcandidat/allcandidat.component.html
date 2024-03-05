@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Liste des candidats</h1>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col" *ngFor="let candidat of candidats">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="col-lg-12 col-12">
+            <div class="custom-block custom-block-transation-detail bg-white">
+              <div class="d-flex flex-wrap align-items-center border-bottom pb-3 mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                    <h6>Nom</h6>
+                    <p>{{ candidat.nom }}</p>
+                  </div>
+                  <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                    <h6>Prénom</h6>
+                    <p>{{ candidat.prenom }}</p>
+                  </div>
+                  <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                    <h6>Email</h6>
+                    <p>{{ candidat.email }}</p>
+                  </div>
+                  <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                    <h6>Téléphone</h6>
+                    <p>{{ candidat.telephone }}</p>
+                  </div>
+                  <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                    <h6>Adresse</h6>
+                    <p>{{ candidat.adresse }}</p>
+                  </div>
+                  <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                    <h6>Nationalité</h6>
+                    <p>{{ candidat.nationalite }}</p>
+                  </div>
+                  <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                    <h6>Genre</h6>
+                    <p>{{ candidat.genre }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>

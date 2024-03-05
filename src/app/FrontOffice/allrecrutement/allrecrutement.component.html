@@ -11,13 +11,16 @@
     <div class="col" *ngFor="let recrutement of recrutements">
       <div class="card mb-3">
         <div class="card-body">
-          <h1 class="card-title"> {{ recrutement.poste }}</h1> <p class="card-text">Type de recrutement : {{ recrutement.typeRecrutement }}</p>
-          <p class="card-text"> {{ recrutement.lieu }}</p>
-  
-          <p class="card-text">postes Vacants : {{ recrutement.postesVacants }}</p>
+          <h1 class="card-text">  {{ recrutement.typeRecrutement }}</h1>
+          <p class="card-title"> {{ recrutement.poste }}</p>
           <p class="card-text">experience : {{ recrutement.experience }}</p>
-          <p class="card-text">niveau D'étude : {{ recrutement.niveauDetude }}</p>
-          <p class="card-text">salaire : {{ recrutement.salaire }}</p>
+          <p class="card-text"> {{ recrutement.niveauDetude }}</p>
+            <p class="card-text"> {{ recrutement.lieu }}</p>
+            <p class="card-text"> {{ recrutement.salaire }} dt</p>
+            <p class="card-text">postes Vacants : {{ recrutement.postesVacants }}</p>
+         
+         
+         
        
           <a href="candidat" class="btn btn-primary">postuler</a> <!-- Ajoutez un lien pour voir les détails -->
         </div>

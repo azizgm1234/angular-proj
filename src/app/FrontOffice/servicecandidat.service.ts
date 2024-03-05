@@ -10,19 +10,22 @@ export class ServicecandidatService {
   
   constructor(private http: HttpClient) { }
   private apiUrl = 'http://localhost:8081/recrutement';
-  
+
+  removeCandidat(idCandidat: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/removeCand/${idCandidat}`);
+  }
+
+
     addCandidat(candidat: Candidat):  Observable<any> {
       return this.http.post<Candidat>(`${this.apiUrl}/addcand`,candidat);
     }
   
   
   getAllCandidats(): Observable<Candidat[]> {
-    return this.http.get<Candidat[]>(`${this.apiUrl}/retrieveAllC`);
+    return this.http.get<Candidat[]>(`${this.apiUrl}/getAllc`);
   }
 
  
-  removeCandidat(idRec: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/deleteRec/${idRec}`);
-  }
+
 
 }
