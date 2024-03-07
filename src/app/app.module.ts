@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,9 +28,8 @@ import { AllrecrutementComponent } from './FrontOffice/allrecrutement/allrecrute
 import { CandidatComponent } from './FrontOffice/Candidat/candidat.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AllcandidatComponent } from './BackOffice/allcandidat/allcandidat.component';
-
-
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchFilterPipe } from './FrontOffice/searchFilter';
 
 
 @NgModule({
@@ -52,8 +50,9 @@ import { AllcandidatComponent } from './BackOffice/allcandidat/allcandidat.compo
     ModifierRecrutementComponent,
     AllrecrutementComponent,
     CandidatComponent,
-    AllcandidatComponent
-   
+    AllcandidatComponent,
+    SearchFilterPipe
+    
 
     
   ],
@@ -70,8 +69,8 @@ import { AllcandidatComponent } from './BackOffice/allcandidat/allcandidat.compo
     CommonModule,
     FormsModule,
     BrowserModule,
-    Ng2SearchPipeModule
-
+    Ng2SearchPipeModule,
+    NgxPaginationModule
 
   ],
   

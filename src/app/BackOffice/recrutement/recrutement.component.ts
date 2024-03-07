@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicerecrutementService } from '../servicerecrutement.service';
 import { Recrutement } from '../recrutement.model';
-import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-recrutement',
@@ -11,8 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./recrutement.component.css'],
   providers: [ServicerecrutementService]
 })
-
-
 export class RecrutementComponent implements OnInit {
   recrutements: Recrutement[] = [];
   
@@ -35,6 +31,4 @@ export class RecrutementComponent implements OnInit {
     this.router.navigate(['/modifier-recrutement', idRec]); 
   }
 
-  
 }
-
