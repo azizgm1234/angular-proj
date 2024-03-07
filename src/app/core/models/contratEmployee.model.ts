@@ -1,61 +1,33 @@
 import { Absence } from "./absence.model";
 import { Conge } from "./conge.model";
 import { Departement } from "./departement.model";
+import { Employee } from "./employee.model";
 import { PerformanceEmployee } from "./performanceEmployee.model";
 import { SalaireEmployee } from "./salaireEmployee.model";
 
 export interface ContratEmployee {
-    id_employe?: number;
-    date_embauche: Date ;
-    posteEmployee: PosteEmployee;
-    justification: string;
-    departement: Departement;
-    conges: Conge[];
-    salaireEmployees: SalaireEmployee[];
-    performanceEmployee: PerformanceEmployee;
-    absences: Absence[];
-    userId: number;
+    id_contrat_e?: number;
+    rib: string;
+    numeroSecuriteSociale: number;
+    date_debut: Date ;
+    date_fin: Date ;
+    typeCE: ContratEmployeeType;
+    duree_hebdomadaire: number;
+    isArchive: Boolean;
+    employee: Employee;
+  
+    
 }
-export enum PosteEmployee {
-    ASSISTANT_ADMINISTRATIF,
-    ASSISTANT_DE_DIRECTION,
-    SECRETAIRE,
-    COMPTABLE,
-    COMMERCIAL,
-    CHARGE_DE_MARKETING,
-    RESPONSABLE_RESSOURCES_HUMAINES,
-    INGENIEUR_INFORMATIQUE,
-    DEVELOPPEUR_WEB,
-    TECHNICIEN_MAINTENANCE,
-    ELECTRICIEN,
-    PLOMBIER,
-    MECANICIEN,
-    OPERATEUR_MACHINE,
-    OUVRIER_USINE,
-    MANUTENTIONNAIRE,
-    CARISTE,
-    AGENT_PRODUCTION,
-    CHEF_EQUIPE,
-    CONSEILLER_CLIENTELE,
-    VENDEUR,
-    AGENT_ACCUEIL,
-    TELECONSEILLER,
-    HOTE_CAISSE,
-    SERVEUR,
-    DIRECTEUR_GENERAL,
-    DIRECTEUR_COMMERCIAL,
-    DIRECTEUR_FINANCIER,
-    DIRECTEUR_RESSOURCES_HUMAINES,
-    CHEF_PROJET,
-    MANAGER,
-    ENSEIGNANT,
-    INFIRMIER,
-    AVOCAT,
-    INGENIEUR,
-    ARCHITECTE,
-    CHAUFFEUR,
-    AGENT_SECURITE,
-    AGENT_NETTOYAGE,
-    JARDINIER,
-    EMPLOYE_MAISON
+export enum ContratEmployeeType {
+    CDI_CLASSIQUE,
+    CIVP,
+    CDI_INTERIM,
+    CDI_CHANTIER,
+    CDD_USAGE,
+    CDD_SAISONNIER,
+    CDD_INSERTION,
+    CDD_PROJET,
+    CONTRAT_APPRENTISSAGE,
+    CONTRAT_PROFESSIONNALISATION,
+    CUI
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { critereNote } from 'src/app/core/models/note.model';
 import { ServiceNoteService } from 'src/app/core/services/service-note.service';
 
 @Component({
@@ -12,6 +13,14 @@ export class AddNoteComponent implements OnInit {
   NoteForm!: FormGroup;
   isEditMode: boolean = false;
   NoteId: number | null = null;  
+  employeeId: number | null = null; 
+
+
+  postes = Object.values(critereNote)
+    .filter((value) => typeof value === 'string')
+    .sort();
+
+
 
   constructor(private fb: FormBuilder,
     private NoteService: ServiceNoteService,
@@ -21,8 +30,18 @@ export class AddNoteComponent implements OnInit {
 
     ngOnInit(): void {
       this.initForm(); 
-      this.checkEditMode();
+      this.checkEditMode();  
+      this.getEmployee();
+
       
+    }
+    private getEmployee():void{
+      this.route.params.subscribe(params => {
+        const id = params['p'];
+        if (id) {
+          this.employeeId = +id;
+        }
+      });
     }
   
     private checkEditMode(): void {
@@ -40,6 +59,7 @@ export class AddNoteComponent implements OnInit {
         this.NoteService.getNote(this.NoteId).subscribe((conge) => {
           this.NoteForm.patchValue({
             note: conge.note,
+            critere : conge.critere
 
           });
     
@@ -50,6 +70,7 @@ export class AddNoteComponent implements OnInit {
     private initForm(): void {  
       this.NoteForm = this.fb.group({
         note: ['', Validators.required],
+        critere: ['', Validators.required],
 
       });}
 
@@ -62,11 +83,14 @@ export class AddNoteComponent implements OnInit {
             });
           }
           else{
-            this.NoteService.addNote(CongeData).subscribe(
+            if(this.employeeId!== null){
+
+            this.NoteService.addNote(this.employeeId,CongeData).subscribe(
               (id_departement: number) => {
             
-                console.log('departement added successfully with ID:', id_departement);
-                  
+                console.log('Note added successfully with ID:', id_departement);
+                window.location.reload();
+
               } ,
               (error) => {
                 console.error('Error adding departement:', error);
@@ -74,6 +98,7 @@ export class AddNoteComponent implements OnInit {
             );
             
       }
+    }
     }
   }
 
@@ -85,3 +110,5 @@ export class AddNoteComponent implements OnInit {
         }
       }
 }
+
+

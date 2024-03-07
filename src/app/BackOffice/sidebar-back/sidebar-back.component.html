@@ -46,6 +46,15 @@
                             </div>
                           </li>
                           <li class="nav-item">
+                            <a class="nav-link" aria-current="page" mat-button (click)="toggleContratEmployeList()"  [ngClass]="{'active': isRouteActive('/admin/ListContratEmployee')} ">
+                              <i class="bi-person me-2"></i>
+                              Contrat Employees
+                            </a>
+                            <div *ngIf="contrat">
+                              <a mat-list-item routerLink="/admin/ListContratEmployee">List Contra</a>
+                            </div>
+                          </li>
+                          <li class="nav-item">
                             <a class="nav-link" aria-current="page" mat-button (click)="toggleEmployeList()"  [ngClass]="{'active': isRouteActive('/admin/addEmployee') || isRouteActive('/admin/listEmployees')} ">
                               <i class="bi-person me-2"></i>
                               Employees

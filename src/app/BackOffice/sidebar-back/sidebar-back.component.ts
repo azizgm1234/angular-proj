@@ -13,12 +13,16 @@ export class SidebarBackComponent {
   user = false;
   wallet = false;
   conge = false;
+  contrat=false;
   employe = false;
   departement = false;
 
   // Function to toggle the Dashboard list expansion
   toggleDashboardList() {
     this.isDashboardListExpanded = !this.isDashboardListExpanded;
+  }
+  toggleContratEmployeList() {
+    this.contrat = !this.contrat;
   }
   toggleAbsences() {
     this.absences = !this.absences;

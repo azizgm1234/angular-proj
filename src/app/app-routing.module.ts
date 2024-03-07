@@ -19,6 +19,8 @@ import { ListEmployeesComponent } from './BackOffice/Employees/list-employees/li
 import { ListDepartementComponent } from './BackOffice/Departement/list-departement/list-departement.component';
 import { ListCongeComponent } from './BackOffice/Conges/list-conge/list-conge.component';
 import { AddNoteComponent } from './BackOffice/Note/add-note/add-note.component';
+import { AddContratEmployeComponent } from './BackOffice/contratEmploye/add-contrat-employe/add-contrat-employe.component';
+import { ListContratEmployeeComponent } from './BackOffice/contratEmploye/list-contrat-employee/list-contrat-employee.component';
 
 const routes: Routes = [
   {
@@ -44,7 +46,9 @@ const routes: Routes = [
       { path: 'addDepartments', component: AddDepartementComponent },
       { path: 'EditDepartement/:id', component: AddDepartementComponent },
       { path: 'listDepartments', component: ListDepartementComponent },
-      { path: 'addNote', component: AddNoteComponent },
+      { path: 'addNote/:p', component: AddNoteComponent },
+      { path: 'addContratEmployee/:p', component: AddContratEmployeComponent },
+      { path: 'ListContratEmployee', component: ListContratEmployeeComponent },
     ]
   },
   

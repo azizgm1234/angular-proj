@@ -12,7 +12,7 @@ export class ListCongeComponent implements OnInit {
   constructor(private congeService: ServiceCongeService) {}
 
   ngOnInit(): void {
-    this.loadAbsences();
+    this.loadAbsences();  
   }
 
   private loadAbsences(): void {

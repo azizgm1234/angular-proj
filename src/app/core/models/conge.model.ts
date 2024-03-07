@@ -5,7 +5,7 @@ export interface Conge {
     date_debut: Date;
     date_fin: Date;
     typeC: typeC;
-    StatutC: StatutC;
+    statutC: StatutC;
     commentaire: String;
     justification: String;
     emp?: Employee;

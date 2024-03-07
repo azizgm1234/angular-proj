@@ -3,7 +3,7 @@ import { Note } from './note.model';
 
 export interface PerformanceEmployee {
   id_performance?: number;
-  note: number;
+  moyenne: number;
   commentaire: string;
   emp?: Employee;
   notes?:Note[];

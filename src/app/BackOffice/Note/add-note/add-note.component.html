@@ -20,6 +20,12 @@
                                 <label for="number" class="form-label">Note</label>
                                 <input class="form-control" type="number" name="profile-email" id="number" formControlName="note" required>
                             </div>
+                            <div class="mb-3">
+                                <label for="critere" class="form-label">Critere Note</label>
+                                <select class="form-select" name="critere" id="critere" formControlName="critere" required>
+                                    <option *ngFor="let poste of postes" [value]="poste">{{ poste }}</option>
+                                </select>
+                            </div>
                             
 
                             <div class="d-flex">

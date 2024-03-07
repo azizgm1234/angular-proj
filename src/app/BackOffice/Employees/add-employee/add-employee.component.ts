@@ -37,8 +37,12 @@ export class AddEmployeeComponent implements OnInit {
     
     this.initForm();
     this.checkEditMode();
+
     this.departmentService.getall().subscribe((data: Departement[])=>{
       this.Departements=data;
+      if (this.isEditMode) {
+        this.fetchEmployeeDetails();
+      }
     },
     (error)=>{
       console.error('Erreur fetching')
@@ -49,6 +53,7 @@ export class AddEmployeeComponent implements OnInit {
   changeDepartments(event: any): void {
     this.selectedDepartement = event.target.value;
   }
+  
   
 
   
@@ -69,21 +74,18 @@ export class AddEmployeeComponent implements OnInit {
 
   private fetchEmployeeDetails(): void {
     if (this.employeeId !== null) {
-      this.employeeService.getEmployee(this.employeeId).subscribe(employee => {   
+      this.employeeService.getEmployee(this.employeeId).subscribe(employee => {           
         const date = new Date(employee.date_embauche);
-
         this.EmployeeForm.patchValue({
         date_embauche: date.toISOString().split('T')[0],
         posteEmployee: employee.posteEmployee,
-        departement: employee.departement,
-        conges: employee.conges,
-        salaireEmployees: employee.salaireEmployees,
-        performanceEmployee: employee.performanceEmployee,
-        contratEmployees: employee.contratEmployees,
-        absences: employee.absences,
-        team: employee.team,
       });
-    }); 
+        if (employee.departement) {
+          this.EmployeeForm.patchValue({
+            selectedDepartement: employee.departement.id_departement, // Or libelle if needed
+          });
+        }
+      });
     }
   }
 
@@ -92,6 +94,7 @@ export class AddEmployeeComponent implements OnInit {
     this.EmployeeForm = this.fb.group({
       date_embauche: ['', Validators.required],
       posteEmployee: ['', Validators.required],
+      selectedDepartement: [null, Validators.required], // Define the selectedDepartement control
       departements: this.fb.array([]),
     });
   }
@@ -105,13 +108,21 @@ export class AddEmployeeComponent implements OnInit {
       if (this.isEditMode && this.employeeId !== null) {
         this.employeeService.updateEmployee(this.employeeId, employeeData).subscribe(() => {
           console.log('Employee updated successfully');
+        },(error)=>{
+          console.error('Error adding conge:', error);
+              console.log('Error details:', error.error); // Log the complete error response
+              console.log('Request payload:', employeeData); // Log the request payload
+              console.log('edit mode :', this.isEditMode); // Log the request payload
+
         });
       } else {
   
           this.employeeService.addEmployee(employeeData, this.selectedDepartement).subscribe(
             (clientId) => {
               console.log('Employee added successfully with ID:', clientId);
-              window.location.reload();
+             // window.location.reload();
+              console.log('Request payload:', employeeData); // Log the request payload
+              console.log('edit mode :', this.isEditMode); // Log the request payload
             },
             (error) => {
               console.error('Error adding employee:', error);
