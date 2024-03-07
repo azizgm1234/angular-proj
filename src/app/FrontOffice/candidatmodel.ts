@@ -9,7 +9,8 @@ export interface candidat {
         adresse: string;
         nationalite: string;
         genre: string; 
-      //  cvUrl: string;
+        showAllDetails: boolean; 
+      //cvUrl: string;
         //lettreMotivationUrl: string;
         //portfolioUrl: string; // Changer "PortfolioUrl" en minuscule "portfolioUrl"
       

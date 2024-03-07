@@ -15,7 +15,8 @@ export class ServicefrontrecrutementService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Recrutement[]> {
-    return this.http.get<Recrutement[]>(this.apiUrl);
+    return this.http.get<Recrutement[]>(`${this.apiUrl}/getAll`)
+
   }
 
 

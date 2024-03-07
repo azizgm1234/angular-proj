@@ -2,13 +2,12 @@
   <div class="row">
     <div class="col">
       <h1>Liste des Recrutements</h1>
-  
+      </div>
     </div>
-    
-  </div>
-  
-  <div class="row">
-    <div class="col" *ngFor="let recrutement of recrutements">
+    <div class="row">
+      <input type="text" [(ngModel)]="searchText" class="input-search" placeholder="Search...">
+      <div class="col" *ngFor="let recrutement of recrutements | searchFilter: searchText">
+     
       <div class="card mb-3">
         <div class="card-body">
           <h1 class="card-text">  {{ recrutement.typeRecrutement }}</h1>
@@ -18,10 +17,6 @@
             <p class="card-text"> {{ recrutement.lieu }}</p>
             <p class="card-text"> {{ recrutement.salaire }} dt</p>
             <p class="card-text">postes Vacants : {{ recrutement.postesVacants }}</p>
-         
-         
-         
-       
-          <a href="candidat" class="btn btn-primary">postuler</a> <!-- Ajoutez un lien pour voir les détails -->
+             <a href="candidat" class="btn btn-primary">postuler</a> 
         </div>
       </div>

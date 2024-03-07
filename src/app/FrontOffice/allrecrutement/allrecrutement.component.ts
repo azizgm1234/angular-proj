@@ -5,6 +5,7 @@ import { ServicerecrutementService } from 'src/app/BackOffice/servicerecrutement
 import { Recrutement } from 'src/app/BackOffice/recrutement.model';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-allrecrutement',
   templateUrl: './allrecrutement.component.html',
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
 export class AllrecrutementComponent implements OnInit {
  
   recrutements: Recrutement[] = [];
- 
+  searchText: string = '';
    
    constructor(private router: Router, private recrutementService: ServicerecrutementService) {}
  
@@ -23,8 +24,7 @@ export class AllrecrutementComponent implements OnInit {
      this.recrutementService.getAll().subscribe((data: Recrutement[]) => {
        this.recrutements = data;
      });
- 
-}
+    }
 
 
 }
