@@ -48,6 +48,7 @@ const routes: Routes = [
       { path: 'listDepartments', component: ListDepartementComponent },
       { path: 'addNote/:p', component: AddNoteComponent },
       { path: 'addContratEmployee/:p', component: AddContratEmployeComponent },
+      { path: 'editContratEmployee/:id', component: AddContratEmployeComponent },
       { path: 'ListContratEmployee', component: ListContratEmployeeComponent },
     ]
   },

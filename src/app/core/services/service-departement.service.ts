@@ -11,6 +11,13 @@ export class ServiceDepartementService {
   readonly URL = "http://localhost:8082/departement";
   constructor(private http:HttpClient) { }
 
+  searchUsers(startingLetter: string){
+    const url = `${this.URL}/search`;
+    const params = { startingLetter };
+
+    return this.http.get<any[]>(url, { params });
+  }
+
   getall(){
     return this.http.get<Departement[]>(this.URL+"/getAllDepartments");
   }

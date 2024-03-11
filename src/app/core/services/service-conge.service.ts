@@ -27,7 +27,7 @@ export class ServiceCongeService {
     return this.http.get<Conge>(this.URL+"/getConge/" + id);
   }
 
-  updateConge(id: number, updatedconge: Conge): Observable<Conge> {
-    return this.http.put<any>(this.URL + "/updateConge/" + id, updatedconge);
+  updateConge(id: number, updatedconge: Conge) {
+    return this.http.put<number>(this.URL + "/updateConge/" + id, updatedconge);
   }
 }

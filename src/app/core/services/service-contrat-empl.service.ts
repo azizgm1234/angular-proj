@@ -22,8 +22,8 @@ export class ServiceContratEmplService {
     return this.http.post<number>(`${this.URL}/saveContratEmployee/`+id, employee);
   }
 
-  updateContratEmployee(p: number, updatedemployee: ContratEmployee){
-    return this.http.put<ContratEmployee>(`${this.URL}/updateContratEmployee/`+p, updatedemployee);
+  updateContratEmployee(updatedemployee: ContratEmployee,id: any){
+    return this.http.put<number>(`${this.URL}/updateContratEmployee/`+id, updatedemployee);
   }
 
   getContratEmployee(id: number){

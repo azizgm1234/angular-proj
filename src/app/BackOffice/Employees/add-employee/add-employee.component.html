@@ -27,9 +27,9 @@
                             </div>
                             
                             <div class="mb-3">
-                                <label for="departement" class="form-label">Departement</label>
+                                <label for="departement" class="form-label">{{ isEditMode ? 'you should ' : 'Add Employee' }}</label>
                                     <select class="form-select" formControlName="selectedDepartement" (change)="changeDepartments($event)">
-                                  <option *ngFor="let depart of Departements " [value]="depart.id_departement" >
+                                  <option *ngFor="let depart of Departements " [value]="depart.id_departement">
                                     {{ depart.libelle }}
                                   </option>
                                 </select>

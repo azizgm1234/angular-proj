@@ -51,8 +51,9 @@ export class AddEmployeeComponent implements OnInit {
     
   }
   changeDepartments(event: any): void {
-    this.selectedDepartement = event.target.value;
-  }
+    if (event.target.value) {
+      this.selectedDepartement = event.target.value;
+    }  }
   
   
 
@@ -68,6 +69,7 @@ export class AddEmployeeComponent implements OnInit {
         this.isEditMode = true;
         this.employeeId = +id;
         this.fetchEmployeeDetails();
+   
       }
     });
   }
@@ -95,7 +97,8 @@ export class AddEmployeeComponent implements OnInit {
       date_embauche: ['', Validators.required],
       posteEmployee: ['', Validators.required],
       selectedDepartement: [null, Validators.required], // Define the selectedDepartement control
-      departements: this.fb.array([]),
+       departements: this.fb.array([]),
+       
     });
   }
 
@@ -106,13 +109,16 @@ export class AddEmployeeComponent implements OnInit {
     if (this.EmployeeForm.valid) {
       const employeeData = this.EmployeeForm.value;
       if (this.isEditMode && this.employeeId !== null) {
-        this.employeeService.updateEmployee(this.employeeId, employeeData).subscribe(() => {
+        this.employeeService.updateEmployee(this.employeeId, employeeData, this.selectedDepartement).subscribe(() => {
           console.log('Employee updated successfully');
+          this.router.navigate(['admin/listEmployees']);
+
         },(error)=>{
           console.error('Error adding conge:', error);
               console.log('Error details:', error.error); // Log the complete error response
               console.log('Request payload:', employeeData); // Log the request payload
-              console.log('edit mode :', this.isEditMode); // Log the request payload
+              console.log('this.selectedDepartement :', this.selectedDepartement); // Log the request payload
+              // window.location.reload();
 
         });
       } else {
@@ -121,11 +127,15 @@ export class AddEmployeeComponent implements OnInit {
             (clientId) => {
               console.log('Employee added successfully with ID:', clientId);
              // window.location.reload();
+             this.router.navigate(['admin/listEmployees']);
+
               console.log('Request payload:', employeeData); // Log the request payload
               console.log('edit mode :', this.isEditMode); // Log the request payload
             },
             (error) => {
+              
               console.error('Error adding employee:', error);
+              window.location.reload();
             }
           );
         

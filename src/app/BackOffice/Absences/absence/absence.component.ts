@@ -74,7 +74,10 @@ export class AbsenceComponent implements OnInit {
         if (this.isEditMode && this.absenceId !== null) {
           this.absenceService.updateAbsence(this.absenceId,absenceData).subscribe(() => {
             console.log('Absence updated successfully');
-            window.location.reload();
+
+            this.router.navigate(['admin/listAbsences']);
+
+            
           });  
         }
         else{
@@ -82,7 +85,8 @@ export class AbsenceComponent implements OnInit {
         this.absenceService.addAbsence(absenceData,this.employeeId).subscribe(
           (clientId) => {
             console.log('Absence added successfully with ID:', clientId);
-            window.location.reload();
+            this.router.navigate(['admin/listAbsences']);
+
           },
           (error) => {
             console.error('Error adding absence:', error);

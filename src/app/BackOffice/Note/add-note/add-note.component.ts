@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { critereNote } from 'src/app/core/models/note.model';
 import { ServiceNoteService } from 'src/app/core/services/service-note.service';
+
 
 @Component({
   selector: 'app-add-note',
@@ -14,6 +15,15 @@ export class AddNoteComponent implements OnInit {
   isEditMode: boolean = false;
   NoteId: number | null = null;  
   employeeId: number | null = null; 
+  ratingCount=0;
+  totalRating=0;
+  finalRating:any;
+  ratingControl=new FormControl(0);
+  // GetRating(){
+  //   this.ratingCount++;
+  //   this.totalRating+=this.ratingControl?.value ||0;
+  //   this.finalRating=(this.totalRating/this.ratingCount).toFixed(2);
+  // }
 
 
   postes = Object.values(critereNote)
@@ -69,7 +79,8 @@ export class AddNoteComponent implements OnInit {
     
     private initForm(): void {  
       this.NoteForm = this.fb.group({
-        note: ['', Validators.required],
+        // note: ['', Validators.required],
+        note: this.ratingControl,
         critere: ['', Validators.required],
 
       });}

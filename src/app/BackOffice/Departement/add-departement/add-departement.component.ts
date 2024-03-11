@@ -38,12 +38,24 @@ export class AddDepartementComponent implements OnInit{
           console.error('Error fetching employees:', error);
         }
       );
-    }
 
+      if (this.isEditMode && this.selectedEmployees.length > 0) {
+        this.selectedEmployees.forEach((employee) => {
+          const foundEmployee = this.employees.find((emp) => emp.id_employe === employee.id_employe);
+          if (foundEmployee) {
+            foundEmployee.selected = true;
+          }
+        });
+      }
+    }
     onCheckboxChange(employee: Employee): void {
-      if (this.isSelected(employee)) {
+      const foundEmployee = this.selectedEmployees.find((emp) => emp.id_employe === employee.id_employe);
+  
+      if (foundEmployee) {
+        // Employee is already in the selected list, remove it
         this.selectedEmployees = this.selectedEmployees.filter((emp) => emp.id_employe !== employee.id_employe);
       } else {
+        // Employee is not in the selected list, add it
         this.selectedEmployees.push(employee);
       }
     }
@@ -51,6 +63,18 @@ export class AddDepartementComponent implements OnInit{
     isSelected(employee: Employee): boolean {
       return this.selectedEmployees.some((emp) => emp.id_employe === employee.id_employe);
     }
+
+    // onCheckboxChange(employee: Employee): void {
+    //   if (this.isSelected(employee)) {
+    //     this.selectedEmployees = this.selectedEmployees.filter((emp) => emp.id_employe !== employee.id_employe);
+    //   } else {
+    //     this.selectedEmployees.push(employee);
+    //   }
+    // }
+  
+    // isSelected(employee: Employee): boolean {
+    //   return this.selectedEmployees.some((emp) => emp.id_employe === employee.id_employe);
+    // }
 
     private checkEditMode(): void {
       this.route.params.subscribe(params => {
@@ -70,12 +94,8 @@ export class AddDepartementComponent implements OnInit{
             maxSaturation: conge.maxSaturation,
           });
     
-          // Assuming conge.employees is an array of Employee objects
           if (conge.employees && Array.isArray(conge.employees)) {
-            // Clear the existing selectedEmployees array
             this.selectedEmployees = [];
-    
-            // Iterate through each employee and add it to selectedEmployees
             conge.employees.forEach((employee: Employee) => {
               this.selectedEmployees.push(employee);
             });
@@ -132,7 +152,7 @@ export class AddDepartementComponent implements OnInit{
 
       onCancel(): void {
         if (this.isEditMode) {
-          this.router.navigate(['admin/listdepartements']);
+          this.router.navigate(['admin/listDepartments']);
         } else {
           this.router.navigate(['admin/homeb']);
         }

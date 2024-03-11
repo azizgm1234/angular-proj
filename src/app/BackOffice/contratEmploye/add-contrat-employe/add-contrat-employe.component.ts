@@ -86,10 +86,11 @@ export class AddContratEmployeComponent implements OnInit {
     if (this.ContratEmployeeForm.valid) {
       const contratEmployeeData: ContratEmployee = this.ContratEmployeeForm.value;
       if (this.isEditMode && this.ContratId !== null) {
-        this.congeService.updateContratEmployee(this.ContratId, contratEmployeeData).subscribe(() => {
-          console.log('Conge updated successfully');
+        this.congeService.updateContratEmployee(contratEmployeeData,this.ContratId ).subscribe(() => {
+          console.log('Contract updated successfully');
+          this.router.navigate(['admin/ListContratEmployee']);
         },(error) => {
-          console.error('Error updating conge:', error);
+          console.error('Error updating Contract:', error);
           console.log('Error details:', error.error); // Log the complete error response
           console.log('Request payload:', contratEmployeeData); // Log the request payload
         }
@@ -99,7 +100,7 @@ export class AddContratEmployeComponent implements OnInit {
           this.congeService.saveContratEmployee(contratEmployeeData, this.employeeId).subscribe(
             (clientId) => {
               console.log('Conge added successfully with ID:', clientId);
-              window.location.reload();
+              this.router.navigate(['admin/ListContratEmployee']);
             },
             (error) => {
               console.error('Error adding conge:', error);
@@ -115,7 +116,10 @@ export class AddContratEmployeComponent implements OnInit {
   }
 
   onCancel(): void {
-    // Add logic to handle cancellation (e.g., navigate back or reset form)
-    this.initForm();
+    if (this.isEditMode) {
+      this.router.navigate(['admin/ListContratEmployee']);
+    } else {
+      this.router.navigate(['admin/homeb']);
+    }
   }
 }

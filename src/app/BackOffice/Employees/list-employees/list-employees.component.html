@@ -1,61 +1,68 @@
 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-    <div class="title-group mb-3">
-        <h1 class="h2 mb-0">Employees</h1>
-    </div>
+  <div class="title-group mb-3">
+      <h1 class="h2 mb-0">Employees</h1>
+  </div>
 
-    <div class="row my-4" *ngFor="let employee of employees">
-        <div class="col-lg-12 col-12">
-            <div class="custom-block custom-block-transation-detail bg-white">
-                <div class="d-flex flex-wrap align-items-center border-bottom pb-3 mb-3">
-                    <div class="d-flex align-items-center">
-                        <!-- Replace the image source with the appropriate property from your employee model -->
-                        <div>
-                            <!-- Display employee-related properties here -->
-                            <p>{{ employee.posteEmployee }}</p>
-                            <p>Email: {{ employee.id_employe }}</p>
-                            <!-- Add other employee-related properties here -->
+  <div class="row my-4" *ngFor="let employee of employees">
+      <div class="col-lg-12 col-12">
+          <div class="custom-block custom-block-transation-detail bg-white">
+              <div class="d-flex flex-wrap align-items-center border-bottom pb-3 mb-3">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <h4>{{ employee.nom }} {{ employee.prenom }}</h4>
+                      <p>Poste: {{ employee.posteEmployee }}</p>
+                      <p>Email: {{ employee.id_employe }}</p>
+                      </div>
+                
+                      <div class="ml-3">
+                          <h5>Performance:</h5>
+                          <p>Moyenne: {{ employee.performanceEmployee != null ? employee.performanceEmployee.moyenne : 'N/A' }}</p>
+                          <ngb-rating [max]="5" [readonly]="true" [rate]=" employee.performanceEmployee?.moyenne"></ngb-rating>
+                          <p>Commentaire: {{ employee.performanceEmployee != null ? employee.performanceEmployee.commentaire : 'N/A' }}</p>
+                          <!-- <p>Moyenne: {{ employee.performanceEmployee ? employee.performanceEmployee.notes.length : 'N/A' }}</p> -->
+
                         </div>
-                    </div>
+                      </div>
+            
                 </div>
+                
+              <div class="d-flex flex-wrap align-items-center">
+                  <div class="custom-block-transation-detail-item mt-4 mx-auto px-4">
+                      <h6>Date Embauche</h6>
+                      <p>{{ employee.date_embauche | date }}</p>
+                  </div>
+                  <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
+                      <h6>Department</h6>
+                      <p>{{ employee.departement!=null ? employee.departement.libelle : 'No appartment' }}</p>
+                  </div>
 
-                <div class="d-flex flex-wrap align-items-center">
-                    <div class="custom-block-transation-detail-item mt-4 mx-auto px-4">
-                        <h6>Date Embauche</h6>
-                        <p>{{ employee.date_embauche | date }}</p>
-                    </div>
+                  <!-- <div class="custom-block-transation-detail-item mt-4 ms-lg-auto px-lg-3 px-md-3">
+                      <h6>Team</h6>
+                      <p>{{ employee.team.teamName }}</p>
+                  </div> -->
 
-                    <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto">
-                        <h6>Department</h6>
-                        <p>{{ employee.departement?.libelle }}</p>
-                    </div>
-
-                    <!-- <div class="custom-block-transation-detail-item mt-4 ms-lg-auto px-lg-3 px-md-3">
-                        <h6>Team</h6>
-                        <p>{{ employee.team.teamName }}</p>
-                    </div> -->
-
-                    <div class="d-flex justify-content-center mt-4">
-                        <div class="custom-block-transation-detail-item me-2">
-                            <button type="button" class="btn btn-outline-danger" (click)="removeEmployee(employee.id_employe)">Delete</button>
-                        </div>
-                        <div class="custom-block-transation-detail-item ms-2">
-                            <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/editEmployees/' + employee.id_employe]">Edit</button>
-                        </div>
-                        <div class="custom-block-transation-detail-item ms-2">
-                            <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addConges/' + employee.id_employe]">add Conge </button>
-                        </div>
-                        <div class="custom-block-transation-detail-item ms-2">
-                            <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addAbsences/' + employee.id_employe]">add absence </button>
-                        </div>
-                        <div class="custom-block-transation-detail-item ms-2">
-                            <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addContratEmployee/' + employee.id_employe]">add Contrat    </button>
-                        </div>
-                        <div class="custom-block-transation-detail-item ms-2">
-                            <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addNote/' + employee.id_employe]">add Note    </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                  <div class="d-flex justify-content-center mt-4">
+                      <div class="custom-block-transation-detail-item me-2">
+                          <button type="button" class="btn btn-outline-danger" (click)="removeEmployee(employee.id_employe)">Delete</button>
+                      </div>
+                      <div class="custom-block-transation-detail-item ms-2">
+                          <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/editEmployees/' + employee.id_employe]">Edit</button>
+                      </div>
+                      <div class="custom-block-transation-detail-item ms-2">
+                          <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addConges/' + employee.id_employe]">add Conge </button>
+                      </div>
+                      <div class="custom-block-transation-detail-item ms-2">
+                          <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addAbsences/' + employee.id_employe]">add absence </button>
+                      </div>
+                      <div class="custom-block-transation-detail-item ms-2">
+                          <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addContratEmployee/' + employee.id_employe]">add Contrat    </button>
+                      </div>
+                      <div class="custom-block-transation-detail-item ms-2">
+                          <button type="button" class="btn btn-outline-success" [routerLink]="['/admin/addNote/' + employee.id_employe]">add Note    </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </main>

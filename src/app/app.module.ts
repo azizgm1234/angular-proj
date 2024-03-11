@@ -31,6 +31,7 @@ import { ListCongeComponent } from './BackOffice/Conges/list-conge/list-conge.co
 import { AddNoteComponent } from './BackOffice/Note/add-note/add-note.component';
 import { AddContratEmployeComponent } from './BackOffice/contratEmploye/add-contrat-employe/add-contrat-employe.component';
 import { ListContratEmployeeComponent } from './BackOffice/contratEmploye/list-contrat-employee/list-contrat-employee.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { ListContratEmployeeComponent } from './BackOffice/contratEmploye/list-c
     MatIconModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

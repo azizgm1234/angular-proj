@@ -9,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListDepartementComponent implements OnInit {
   departements: any[] = [];
+  startingLetter: string = '';
+  users: any[] = [];
+  onInput(event: any): void {
+    this.startingLetter = event.target.value;
+    this.searchUsers();
+  }
 
   constructor(private absenceDepartement: ServiceDepartementService) {}
   ngOnInit(): void {
@@ -31,5 +37,16 @@ export class ListDepartementComponent implements OnInit {
             }); 
         });
     }
+}
+searchUsers(): void {
+  this.absenceDepartement.searchUsers(this.startingLetter).subscribe(
+    (data) => {
+      console.log('Users:', data);
+      this.departements = data;
+    },
+    (error) => {
+      console.error('Error fetching users:', error);
+    }
+  );
 }
 }

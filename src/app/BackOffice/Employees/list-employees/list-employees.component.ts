@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SericeEmployeeService } from 'src/app/core/services/serice-employee.service';
 
+
 @Component({
   selector: 'app-list-employees',
   templateUrl: './list-employees.component.html',
@@ -8,6 +9,8 @@ import { SericeEmployeeService } from 'src/app/core/services/serice-employee.ser
 })
 export class ListEmployeesComponent implements OnInit {
   employees: any[] = [];
+  starsArray: any[] = [];
+  emptyStarsArray: any[] = [];
 
   constructor(private employeeService: SericeEmployeeService) {}
 

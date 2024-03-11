@@ -25,8 +25,8 @@ export class SericeEmployeeService {
     return this.http.post<number>(`${this.URL}/addEmployee/`+id, employee);
   }
   
-  updateEmployee(p: number, updatedemployee: Employee){
-    return this.http.put<Employee>(`${this.URL}/updateEmployee/`+p, updatedemployee);
+  updateEmployee(p: number, updatedemployee: Employee,pp:number){
+    return this.http.put<number>(`${this.URL}/updateEmployee/${p}/${pp}`, updatedemployee);
   }
 
   getEmployee(id: number){

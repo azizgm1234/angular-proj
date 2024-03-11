@@ -18,7 +18,7 @@
                             
                             <div class="mb-3">
                                 <label for="number" class="form-label">Note</label>
-                                <input class="form-control" type="number" name="profile-email" id="number" formControlName="note" required>
+                                <ngb-rating [max]="5" [formControl]="ratingControl"></ngb-rating>
                             </div>
                             <div class="mb-3">
                                 <label for="critere" class="form-label">Critere Note</label>
