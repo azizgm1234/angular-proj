@@ -30,4 +30,10 @@ export class ServiceCongeService {
   updateConge(id: number, updatedconge: Conge) {
     return this.http.put<number>(this.URL + "/updateConge/" + id, updatedconge);
   }
+  searchUsers(startingLetter: string){
+    const url = `${this.URL}/search`;
+    const params = { startingLetter };
+
+    return this.http.get<any[]>(url, { params });
+  }
 }

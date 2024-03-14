@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListDepartementComponent implements OnInit {
   departements: any[] = [];
-  startingLetter: string = '';
+  startingLetter: any = '';
   users: any[] = [];
   onInput(event: any): void {
     this.startingLetter = event.target.value;

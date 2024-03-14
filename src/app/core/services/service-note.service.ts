@@ -21,6 +21,9 @@ export class ServiceNoteService {
   addNote(p:number,employee: Note){
     return this.http.post<number>(`${this.URL}/addNote/${p}`, employee);
   }
+  addPerfermance(id:number){
+    return this.http.post<number>(`${this.URL}/addPerfermance/${id}`,null);
+  }
   updateNote(id: number, updatedemployee: Note){
     return this.http.put<Note>(`${this.URL}/updateNote/`+id, updatedemployee);
   }

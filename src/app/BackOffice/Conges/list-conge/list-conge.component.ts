@@ -8,6 +8,8 @@ import { ServiceCongeService } from 'src/app/core/services/service-conge.service
 })
 export class ListCongeComponent implements OnInit {
   absences: any[] = [];
+  startingLetter: any = '';
+
 
   constructor(private congeService: ServiceCongeService) {}
 
@@ -31,5 +33,20 @@ export class ListCongeComponent implements OnInit {
             }); 
         });
     }  
+}
+onInput(event: any): void {
+  this.startingLetter = event.target.value;
+  this.searchUsers();
+}
+searchUsers(): void {
+  this.congeService.searchUsers(this.startingLetter).subscribe(
+    (data) => {
+      console.log('Users:', data);
+      this.absences = data;
+    },
+    (error) => {
+      console.error('Error fetching users:', error);
+    }
+  );
 }
 }

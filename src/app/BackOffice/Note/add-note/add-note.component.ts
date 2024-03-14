@@ -97,12 +97,20 @@ export class AddNoteComponent implements OnInit {
             if(this.employeeId!== null){
 
             this.NoteService.addNote(this.employeeId,CongeData).subscribe(
-              (id_departement: number) => {
-            
-                console.log('Note added successfully with ID:', id_departement);
-                window.location.reload();
-
-              } ,
+              (id_note: number) => {
+                console.log('Note added successfully with ID:', id_note);
+                if (this.employeeId !== null) {
+                this.NoteService.addPerfermance(this.employeeId).subscribe(   
+                  (id_performance: number) => {
+                    console.log('Performance added successfully with ID:', id_performance);
+                    window.location.reload();
+                  },
+                  (error) => {
+                    console.error('Error adding performance:', error);
+                  }
+                );
+                }
+            } ,
               (error) => {
                 console.error('Error adding departement:', error);
               }
