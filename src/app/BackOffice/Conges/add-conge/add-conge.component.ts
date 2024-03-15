@@ -95,7 +95,7 @@ export class AddCongeComponent implements OnInit {
       const CongeData = this.CongeForm.value;
       if (this.isEditMode && this.congeId !== null) {
         this.congeService.updateConge(this.congeId, CongeData).subscribe(() => {
-          console.log('Conge updated successfully');
+          this.router.navigate(['admin/listConge']);
         },(error) => {
           console.error('Error updating conge:', error);
           console.log('Error details:', error.error); // Log the complete error response
@@ -107,7 +107,7 @@ export class AddCongeComponent implements OnInit {
           this.congeService.addConge(CongeData, this.employeeId).subscribe(
             (clientId) => {
               console.log('Conge added successfully with ID:', clientId);
-              window.location.reload();
+              this.router.navigate(['admin/listConge']);
             },
             (error) => {
               console.error('Error adding conge:', error);

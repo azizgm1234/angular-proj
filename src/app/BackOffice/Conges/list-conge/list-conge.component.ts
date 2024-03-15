@@ -41,7 +41,7 @@ onInput(event: any): void {
 searchUsers(): void {
   this.congeService.searchUsers(this.startingLetter).subscribe(
     (data) => {
-      console.log('Users:', data);
+//      console.log('Users:', data);
       this.absences = data;
     },
     (error) => {
