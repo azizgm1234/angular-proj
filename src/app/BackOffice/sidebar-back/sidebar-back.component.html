@@ -36,6 +36,19 @@
                               <a mat-list-item routerLink="/users/statistics">add more</a>
                             </div>
                           </li>
+                         
+                          <li class="nav-item">
+                            <a class="nav-link" aria-current="page" mat-button (click)="toggleProjectsList()" [ngClass]="{'active': isRouteActive('/admin/projects')|| isRouteActive('/admin/addclient')}">
+                                <i class="bi-wallet me-2"></i>
+                                Projects 
+                            </a>
+                            <div *ngIf="Projects">
+                              <a mat-list-item routerLink="/admin/addProject">Add project</a>
+                              <a mat-list-item routerLink="/admin/projects">All projects</a>
+                            </div>
+                          </li>
+                         
+                        
 
                           <li class="nav-item">
                             <a class="nav-link" href="setting.html">

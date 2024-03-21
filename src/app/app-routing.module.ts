@@ -10,6 +10,11 @@ import { TemplateBComponent } from './BackOffice/template-b/template-b.component
 import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
 import { AddclientComponent } from './BackOffice/addclient/addclient.component';
 import { ClientsComponent } from './BackOffice/clients/clients.component';
+import { AddProjectComponent } from './BackOffice/add-project/add-project.component';
+import { ProjectsComponent } from './BackOffice/projects/projects.component';
+import { AddtaskComponent } from './BackOffice/addtask/addtask.component';
+import { TasksComponent } from './BackOffice/tasks/tasks.component';
+import { UpdateprojectComponent } from './BackOffice/updateproject/updateproject.component';
 
 const routes: Routes = [
   {
@@ -24,7 +29,14 @@ const routes: Routes = [
     children: [
       { path: 'homeb', component: HomeBackComponent },
       { path: 'clients', component: ClientsComponent },
-      { path: 'addclient', component: AddclientComponent }]
+      { path: 'addclient', component: AddclientComponent },
+      { path: 'addProject', component: AddProjectComponent  } ,
+      { path: 'projects', component: ProjectsComponent  } ,
+      { path: 'addtask', component: AddtaskComponent  } ,
+      { path: 'tasks', component: TasksComponent  } ,
+      { path: 'updateP', component: UpdateprojectComponent  } ,
+      
+      ]
   },
   
 ];

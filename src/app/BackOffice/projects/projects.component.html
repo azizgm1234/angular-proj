@@ -1,0 +1,52 @@
+<main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+  <!-- Main content -->
+  <div class="title-group mb-3">
+    <h1 class="h2 mb-0">Projects</h1>
+  </div>
+
+  <!-- Iterate over projects -->
+  <div class="row my-4" *ngFor="let project of projects">
+    <div class="col-lg-12 col-12">
+      <div class="custom-block custom-block-transation-detail bg-white">
+        <div class="d-flex flex-wrap align-items-center border-bottom pb-3 mb-3">
+          <!-- Project name -->
+          <div class="d-flex align-items-center">
+            <div>
+              <h2>{{ project.projectname }}</h2>
+            </div>
+          </div>
+
+          <!-- Additional project details -->
+          <div class="d-flex flex-wrap align-items-center">
+            <!-- Project description -->
+            <div class="custom-block-transation-detail-item mt-4">
+              <p>{{ project.projectdescription }}</p>
+            </div>
+
+            <!-- Start Date -->
+            <div class="custom-block-transation-detail-item mt-4 mx-auto px-4">
+              <h6>Start Date:</h6>
+              <p>{{ project.startDate }}</p>
+            </div>
+
+            <!-- End Date -->
+            <div class="custom-block-transation-detail-item mt-4 ms-lg-auto px-lg-3 px-md-3">
+              <h6>End Date:</h6>
+              <p>{{ project.endDate }}</p>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="d-flex justify-content-center mt-4">
+              <div class="custom-block-transation-detail-item me-2">
+                <button class="btn btn-danger" (click)="onDeleteProject(project.projectid)">Delete</button>
+              </div>
+              <div class="custom-block-transation-detail-item ms-2">
+                <button class="btn btn-danger" (click)="onUpdateProject(project.projectid)"><i id="update" class="bi bi-pencil-fill"></i>Update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

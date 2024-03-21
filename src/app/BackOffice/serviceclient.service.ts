@@ -21,4 +21,5 @@ export class ServiceclientService {
   addclient(client: Client): Observable<number> {
     return this.http.post<number>(`${this.URL}/addclient`, client);
   }
+  
 }

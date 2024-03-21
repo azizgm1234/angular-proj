@@ -22,7 +22,8 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "bootstrap": "^5.3.3",
-    "ng-bootstrap": "^1.6.3",
+    "install": "^0.13.0",
+    "ng-bootstrap": "^1.1.16",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

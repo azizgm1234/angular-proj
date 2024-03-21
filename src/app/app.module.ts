@@ -20,6 +20,11 @@ import { HomeBackComponent } from './BackOffice/home-back/home-back.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientsComponent } from './BackOffice/clients/clients.component';
 import { AddclientComponent } from './BackOffice/addclient/addclient.component';
+import { AddProjectComponent } from './BackOffice/add-project/add-project.component';
+import { ProjectsComponent } from './BackOffice/projects/projects.component';
+import { AddtaskComponent } from './BackOffice/addtask/addtask.component';
+import { TasksComponent } from './BackOffice/tasks/tasks.component';
+import { UpdateprojectComponent } from './BackOffice/updateproject/updateproject.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,11 @@ import { AddclientComponent } from './BackOffice/addclient/addclient.component';
     HomeBackComponent,
     ClientsComponent,
     AddclientComponent,
+    AddProjectComponent,
+    ProjectsComponent,
+    AddtaskComponent,
+    TasksComponent,
+    UpdateprojectComponent,
 
     
   ],

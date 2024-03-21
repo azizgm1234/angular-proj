@@ -1,0 +1,51 @@
+<main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+    <!-- Main content -->
+    <div class="title-group mb-3">
+      <h1 class="h2 mb-0">Tâches</h1>
+    </div>
+  
+    <!-- Iterate over tasks -->
+    <div class="row my-4" *ngFor="let task of tasks">
+      <div class="col-lg-12 col-12">
+        <div class="custom-block custom-block-transation-detail bg-white">
+          <div class="d-flex flex-wrap align-items-center border-bottom pb-3 mb-3">
+            <!-- Task name -->
+            <div class="d-flex align-items-center">
+              <div>
+                <h2>{{ task.taskname }}</h2>
+              </div>
+            </div>
+  
+            <!-- Additional task details -->
+            <div class="d-flex flex-wrap align-items-center">
+              <!-- Task description -->
+              <div class="custom-block-transation-detail-item mt-4">
+                <p>{{ task.taskdescription }}</p>
+              </div>
+  
+              <!-- Start Date -->
+              <div class="custom-block-transation-detail-item mt-4 mx-auto px-4">
+                <h6>Start Date:</h6>
+                <p>{{ task.startDate }}</p>
+              </div>
+  
+              <!-- End Date -->
+              <div class="custom-block-transation-detail-item mt-4 ms-lg-auto px-lg-3 px-md-3">
+                <h6>End Date:</h6>
+                <p>{{ task.endDate }}</p>
+              </div>
+  
+              <!-- Action buttons -->
+              <div class="d-flex justify-content-center mt-4">
+                <div class="custom-block-transation-detail-item me-2">
+                  <button class="btn btn-danger" (click)="onDeleteTask(task.taskid)">Delete</button>
+                </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
