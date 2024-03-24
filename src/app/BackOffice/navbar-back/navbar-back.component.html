@@ -11,7 +11,7 @@
 
     <div class="navbar-nav me-lg-2">
         <div class="nav-item text-nowrap d-flex align-items-center">
-            <div class="dropdown ps-3">
+            <div class="dropdown ps-3" >
                 <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
                     <i class="bi-bell"></i>
                     <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
@@ -19,7 +19,7 @@
                     </span>
                 </a>
 
-                <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink">
+                <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink" *ngIf="showNotifications">
                     <small>Notifications</small>
 
                     <li class="notifications-block border-bottom pb-2 mb-2">
@@ -64,6 +64,29 @@
                         </a>
                     </li>
                 </ul>
+               <!--  ce block est notification de aziz dont touch  -->
+                <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink" *ngIf="showalerts">
+                    <small>Not Paid Bills</small>
+
+                    <li class="notifications-block border-bottom pb-2 mb-2" *ngFor="let list of clients">
+                        <a class="dropdown-item d-flex  align-items-center" href="#">
+                            <div class="notifications-icon-wrap bg-danger">
+                                <i class="bi bi-exclamation-lg" style="color: white; font-size:20px"></i>
+                            </div>
+
+                            <div>
+                                <span>Due Date Depassed</span>
+                                <p>Client :{{list.client.nom}} {{list.client.prenom}}</p>
+                                <p>Due Date :{{list.dueDate  | date:'yyyy-MM-dd HH:mm'}}</p>
+                            </div>
+                        </a>
+                    </li>
+
+
+
+                    
+                </ul>
+                        <!--  ce block est notification de aziz dont touch  -->
             </div>
 
             <div class="dropdown ps-1">

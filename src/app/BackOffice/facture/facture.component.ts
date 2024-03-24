@@ -4,7 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceclientService } from "../serviceclient.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
+import { Facture } from '../facture.model';
+import { Client } from '../client.model';
 @Component({
   selector: 'app-facture',
   templateUrl: './facture.component.html',
@@ -17,6 +18,7 @@ export class FactureComponent implements OnInit{
   idclient: number | undefined;
   factureForm!: FormGroup;
   totalprix:number| undefined;
+  client!: Client;
 
   constructor(private route: ActivatedRoute,private router: Router,private fb: FormBuilder, private clientservice:ServiceclientService){}
   @ViewChild('factureFormElement') factureFormElement: ElementRef | undefined;
@@ -72,8 +74,8 @@ export class FactureComponent implements OnInit{
       invoice_number: [null, Validators.required],
       facture_date: [null, Validators.required],
       due_date: [null, Validators.required],
-      paid_amount: [null, Validators.required],
-      payment_status: ['', Validators.required],
+      total_amount: [null, Validators.required],
+      
       notes: [''],
       milestone_description: [''],
 
@@ -99,6 +101,10 @@ export class FactureComponent implements OnInit{
   navtoaddpaiment(idfacture:number): void {
     console.log("idfacture="+idfacture );
     this.router.navigate(['/admin/addpaiment'], { queryParams: { id: idfacture} });
+  }
+  navtodetails(idfacture:number):void{
+    console.log("factoura"+idfacture);
+    this.router.navigate(['/admin/detailfacture'], { queryParams: { id: idfacture} });
   }
 
 }

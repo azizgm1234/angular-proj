@@ -7,7 +7,7 @@ export interface Paiment {
     amount: number;
     typepaiment: Typepaiment;
     client?: Client; // Assuming you have a Client interface
-    facture?: Facture; // Assuming you have a Facture interface
+    facture: Facture; // Assuming you have a Facture interface
   }
   
   export enum Typepaiment {

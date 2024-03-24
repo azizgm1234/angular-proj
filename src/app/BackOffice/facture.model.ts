@@ -3,20 +3,20 @@ import {Contrat } from "./contrat.model";
 import { Paiment } from "./paiment.model";
 
 export interface Facture {
-    idFacture?: number;
+    idFacture: number;
     designation: string;
     currency: string;
-    invoiceNumber: number;
-    factureDate: Date;
-    dueDate: Date;
-    totalAmount: number;
-    paidAmount: number;
-    paymentStatus: string; // "Outstanding", "Partially paid", "Paid"
+    invoice_number: number;
+    facture_date: Date;
+    due_date: Date;
+    total_amount: number;
+    paid_amount: number;
+    payment_status: string; // "Outstanding", "Partially paid", "Paid"
     notes: string;
-    milestoneDescription: string;
-    client?: Client;
+    milestone_description: string;
+    client: Client;
     contract?: Contrat;
-    paiments?: Paiment[];
+    paiments: Paiment[];
   }
 
   

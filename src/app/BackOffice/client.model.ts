@@ -12,7 +12,7 @@ export interface Client {
   phone: string;
   companyAddress: string;
   amount: number;
-  factures?: Facture[];
+  factures: Facture[];
   paiments?: Paiment[];
   contracts?: Contrat[];
 }

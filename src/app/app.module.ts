@@ -3,6 +3,7 @@ import { NgbCalendar, NgbDatepickerModule, NgbDatepicker,NgbDateStruct } from '@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -11,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
 
 import { AppComponent } from './app.component';
 import { TemplateFComponent } from './FrontOffice/template-f/template-f.component';
@@ -35,8 +38,11 @@ import { AddpaimentComponent } from './BackOffice/addpaiment/addpaiment.componen
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { CalendarModule } from 'angular-calendar';
-import { CalendrierComponent } from './BackOffice/calendrier/calendrier.component';
+import { CommonModule } from '@angular/common';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalenderComponent } from './BackOffice/calender/calender.component';
+import { DetailfactureComponent } from './BackOffice/detailfacture/detailfacture.component';
+import { AddfactureComponent } from './BackOffice/addfacture/addfacture.component';
 
 
 @NgModule({
@@ -58,10 +64,10 @@ import { CalendrierComponent } from './BackOffice/calendrier/calendrier.componen
     EditcontratComponent,
     FactureComponent,
     AddpaimentComponent,
-    CalendrierComponent
+    CalenderComponent,
+    DetailfactureComponent,
+    AddfactureComponent
     
-    
-
     
   ],
   imports: [
@@ -82,9 +88,12 @@ import { CalendrierComponent } from './BackOffice/calendrier/calendrier.componen
     MatInputModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    CalendarModule
+    CommonModule,
+    BrowserAnimationsModule,
+    NgbModalModule,
+    FullCalendarModule 
 
-    
+
     
   ],
   providers: [],

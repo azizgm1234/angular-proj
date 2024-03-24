@@ -59,4 +59,13 @@ addfacture(facture: Facture , idclient:number,idcontrat:number): Observable<numb
 addpaiment(paiment : Paiment,idfacture:number):Observable<number>{
   return this.http.post<number>(`${this.URL}/addpaiment/`+ idfacture, paiment);
 }
+getcallender(nb:number): Observable<any> {
+  return this.http.get(this.URL + "/calendrier/" + nb);
+}
+getfacture(id:number): Observable<any> {
+  return this.http.get(this.URL + "/facture/getbyid/" + id);
+}
+notifdepassage(): Observable<any> {
+  return this.http.get(this.URL + "/facture/notif");
+}
 }
