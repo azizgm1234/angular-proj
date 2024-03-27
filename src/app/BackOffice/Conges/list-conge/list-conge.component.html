@@ -19,6 +19,9 @@
                             <p>{{ absence.commentaire }} {{ absence.justification }}</p>
                             <!-- Add other absence-related properties here -->
                         </div>
+                        <div>
+                            <p>{{absence.employee!=null? absence.employee.posteEmployee:' no empl' }}</p>
+                        </div>
                     </div>
 
                     

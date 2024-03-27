@@ -11,6 +11,8 @@ export class ListDepartementComponent implements OnInit {
   departements: any[] = [];
   startingLetter: any = '';
   users: any[] = [];
+  availablePercentage:number=0;
+
   onInput(event: any): void {
     this.startingLetter = event.target.value;
     this.searchUsers();
@@ -19,6 +21,7 @@ export class ListDepartementComponent implements OnInit {
   constructor(private absenceDepartement: ServiceDepartementService) {}
   ngOnInit(): void {
     this.loadDepartements();
+    this.fetchAnalytics();  
   }
 
   private loadDepartements(): void {
@@ -38,6 +41,14 @@ export class ListDepartementComponent implements OnInit {
         });
     }
 }
+
+fetchAnalytics() {
+  this.absenceDepartement.fetchAnalytics().subscribe(
+    (availablePercentage) => this.availablePercentage = availablePercentage as number,
+    error => console.error('Error fetching available percentage:', error)
+  );
+}
+
 searchUsers(): void {
   this.absenceDepartement.searchUsers(this.startingLetter).subscribe(
     (data) => {

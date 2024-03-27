@@ -17,6 +17,8 @@ export class AddContratEmployeComponent implements OnInit {
   postes = Object.values(ContratEmployeeType)
     .filter((value) => typeof value === 'string')
     .sort();
+  errorMessage: string = '';
+
 
   constructor(private fb: FormBuilder,
     private congeService: ServiceContratEmplService,
@@ -89,10 +91,13 @@ export class AddContratEmployeComponent implements OnInit {
         this.congeService.updateContratEmployee(contratEmployeeData,this.ContratId ).subscribe(() => {
           console.log('Contract updated successfully');
           this.router.navigate(['admin/ListContratEmployee']);
-        },(error) => {
-          console.error('Error updating Contract:', error);
-          console.log('Error details:', error.error); // Log the complete error response
-          console.log('Request payload:', contratEmployeeData); // Log the request payload
+        },
+        (errorResponse) => {
+          if (errorResponse.error && errorResponse.error.error) {
+            this.errorMessage = errorResponse.error.error;
+          } else {
+            this.errorMessage = 'An unexpected error occurred.';
+          }
         }
         );
       } else {
@@ -102,12 +107,12 @@ export class AddContratEmployeComponent implements OnInit {
               console.log('Conge added successfully with ID:', clientId);
               this.router.navigate(['admin/ListContratEmployee']);
             },
-            (error) => {
-              console.error('Error adding conge:', error);
-              console.log('Error details:', error.error); // Log the complete error response
-              console.log('Request payload:', contratEmployeeData); // Log the request payload
-              console.log('edit mode :', this.isEditMode); // Log the request payload
-
+            (errorResponse) => {
+              if (errorResponse.error && errorResponse.error.error) {
+                this.errorMessage = errorResponse.error.error;
+              } else {
+                this.errorMessage = 'An unexpected error occurred.';
+              }
             }
           );
         }

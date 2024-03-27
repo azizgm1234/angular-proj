@@ -8,7 +8,8 @@ export interface Conge {
     statutC: StatutC;
     commentaire: String;
     justification: String;
-    emp?: Employee;
+    employee?: Employee;
+    // 27404688
 }
 
 export enum typeC {

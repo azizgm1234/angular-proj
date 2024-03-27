@@ -13,6 +13,29 @@ export class AbsenceComponent implements OnInit {
   isEditMode: boolean = false;
   absenceId: number | null = null; 
   employeeId: number | null = null; 
+  selectedFile: File  | null = null;
+  uploadProgress: number | null = null;
+
+  // onFileSelected(event: any): void {
+  //   const fileList: FileList = event.target.files;
+  //   if (fileList && fileList.length > 0) {
+  //     this.selectedFile = fileList[0];
+  //   }
+  // }
+
+  // uploadFile(clientID:any): void {
+  //   if (this.selectedFile) {
+  //     this.absenceService.uploadFile(this.selectedFile,clientID)
+  //       .subscribe(progress => {
+  //         this.uploadProgress = progress;
+  //         if (progress === 100) {
+  //           alert("File upload completed")
+  //           // File upload completed
+  //           this.selectedFile = null;
+  //         }
+  //       });
+  //   }
+  // }
   
   constructor(private fb: FormBuilder,
     private absenceService: ServiceAbsenceService,
@@ -52,7 +75,7 @@ export class AbsenceComponent implements OnInit {
 
         this.AbsenceForm.patchValue({
           motif: absence.motif,
-          justification: absence.justification,
+          // justification: absence.justification,
           date: date.toISOString().split('T')[0], // Format as 'yyyy-MM-dd'
           validee: absence.validee,
         });
@@ -62,7 +85,7 @@ export class AbsenceComponent implements OnInit {
   private initForm(): void {  
     this.AbsenceForm = this.fb.group({
       motif: ['', Validators.required],
-      justification: ['', Validators.required],
+      // justification: ['', Validators.required],
       date: ['', Validators.required],
       validee: [true, Validators.required],
    
@@ -85,8 +108,7 @@ export class AbsenceComponent implements OnInit {
         this.absenceService.addAbsence(absenceData,this.employeeId).subscribe(
           (clientId) => {
             console.log('Absence added successfully with ID:', clientId);
-            this.router.navigate(['admin/listAbsences']);
-
+            // this.uploadFile(clientId); // Upload file after creating absence
           },
           (error) => {
             console.error('Error adding absence:', error);

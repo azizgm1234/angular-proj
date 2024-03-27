@@ -5,7 +5,7 @@ import { Departement } from "./departement.model";
 import { PerformanceEmployee } from "./performanceEmployee.model";
 import { SalaireEmployee } from "./salaireEmployee.model";
 
-export interface Employee {
+export interface Employee{
     id_employe?: number;
     date_embauche: Date ;
     posteEmployee: PosteEmployee;

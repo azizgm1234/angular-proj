@@ -32,6 +32,10 @@ import { AddNoteComponent } from './BackOffice/Note/add-note/add-note.component'
 import { AddContratEmployeComponent } from './BackOffice/contratEmploye/add-contrat-employe/add-contrat-employe.component';
 import { ListContratEmployeeComponent } from './BackOffice/contratEmploye/list-contrat-employee/list-contrat-employee.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CircularChartComponent } from './BackOffice/dashboarding/circular-chart/circular-chart.component';
+import { ChartsModule } from 'ng2-charts';
+
+
 
 @NgModule({
   declarations: [
@@ -56,7 +60,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListCongeComponent,
     AddNoteComponent,
     AddContratEmployeComponent,
-    ListContratEmployeeComponent
+    ListContratEmployeeComponent,
+    CircularChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

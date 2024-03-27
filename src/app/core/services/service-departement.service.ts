@@ -21,6 +21,10 @@ export class ServiceDepartementService {
   getall(){
     return this.http.get<Departement[]>(this.URL+"/getAllDepartments");
   }
+  fetchAnalytics(){
+    return this.http.get<number>(this.URL+"/availablePercentage");
+  }
+
 
   removeDepartement(id: number) {
     return this.http.delete(this.URL + "/deleteDepartment/" + id);

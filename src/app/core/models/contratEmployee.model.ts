@@ -14,7 +14,7 @@ export interface ContratEmployee {
     typeCE: ContratEmployeeType;
     duree_hebdomadaire: number;
     isArchive: Boolean;
-    employee: Employee;
+    empl: Employee;
   
     
 }

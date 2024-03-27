@@ -14,6 +14,9 @@
                             <p>{{ absence.motif }} {{ absence.justification }}</p>
                             <!-- Add other absence-related properties here -->
                         </div>
+                        <div>
+                            <p>{{absence.emp!=null? absence.emp.posteEmployee:' no empl' }}</p>
+                        </div>
                     </div>
 
                     
@@ -25,12 +28,11 @@
                         <!-- Use the appropriate property for email -->
                         <p>{{ absence.motif }}</p>
                     </div>
-
-                    <div class="custom-block-transation-detail-item mt-4 mx-auto px-4">
-                        <h6>justification</h6>
-                        <!-- Use the appropriate property for phone -->
-                        <p>{{ absence.justification }}</p>
-                    </div>
+<!-- 
+                    <div class="custom-block-transation-detail-item mt-4 mx-auto px-4" *ngFor="let absence of absences ">
+                        <h6>Justification</h6>
+                        <img *ngIf="getJustificationFile(absence.id_absence)" [src]="getJustificationFile(absence.id_absence)" alt="File Image" />
+                    </div> -->
 
                     <div class="custom-block-transation-detail-item mt-4 ms-auto me-auto" style="background-color: #f0f8ff; border-radius: 8px; padding: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                         <h6 style="color: #333;">Date</h6>

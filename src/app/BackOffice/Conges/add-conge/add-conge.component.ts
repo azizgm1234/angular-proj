@@ -16,6 +16,8 @@ export class AddCongeComponent implements OnInit {
   isEditMode: boolean = false;
   congeId: number | null = null;
   employeeId: number | null = null;
+  errorMessage: string = '';
+
 
   postes = Object.values(typeC)
     .filter((value) => typeof value === 'string')
@@ -96,10 +98,15 @@ export class AddCongeComponent implements OnInit {
       if (this.isEditMode && this.congeId !== null) {
         this.congeService.updateConge(this.congeId, CongeData).subscribe(() => {
           this.router.navigate(['admin/listConge']);
-        },(error) => {
-          console.error('Error updating conge:', error);
-          console.log('Error details:', error.error); // Log the complete error response
-          console.log('Request payload:', CongeData); // Log the request payload
+        }
+        ,
+        
+        (errorResponse) => {
+          if (errorResponse.error && errorResponse.error.error) {
+            this.errorMessage = errorResponse.error.error;
+          } else {
+            this.errorMessage = 'An unexpected error occurred.';
+          }
         }
         );
       } else {
@@ -108,14 +115,15 @@ export class AddCongeComponent implements OnInit {
             (clientId) => {
               console.log('Conge added successfully with ID:', clientId);
               this.router.navigate(['admin/listConge']);
-            },
-            (error) => {
-              console.error('Error adding conge:', error);
-              console.log('Error details:', error.error); // Log the complete error response
-              console.log('Request payload:', CongeData); // Log the request payload
-              console.log('edit mode :', this.isEditMode); // Log the request payload
-
             }
+            ,
+          (errorResponse) => {
+            if (errorResponse.error && errorResponse.error.error) {
+              this.errorMessage = errorResponse.error.error;
+            } else {
+              this.errorMessage = 'An unexpected error occurred.';
+            }
+          }
           );
         }
       }

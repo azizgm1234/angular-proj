@@ -8,6 +8,16 @@
         <input type="text" class="form-control" id="startingLetter" [(ngModel)]="startingLetter" (input)="onInput($event)" placeholder="Entrez la libelle"/>
       </div>
 
+<!-- 
+              <div class="card-body">
+                <div style="display: flex; justify-content: center;">
+                  <app-circular-chart [percentage]="availablePercentage"></app-circular-chart>
+                </div>
+              </div> -->
+              <app-circular-chart [type]=50 [percentage]="availablePercentage"></app-circular-chart>
+
+      
+
     <div class="row my-4" *ngFor="let absence of departements ">
         <div class="col-lg-12 col-12">
             <div class="custom-block custom-block-transation-detail bg-white">
