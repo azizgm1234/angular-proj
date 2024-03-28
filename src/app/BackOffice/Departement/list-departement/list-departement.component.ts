@@ -12,6 +12,7 @@ export class ListDepartementComponent implements OnInit {
   startingLetter: any = '';
   users: any[] = [];
   availablePercentage:number=0;
+  max:number=0;
 
   onInput(event: any): void {
     this.startingLetter = event.target.value;
@@ -22,6 +23,7 @@ export class ListDepartementComponent implements OnInit {
   ngOnInit(): void {
     this.loadDepartements();
     this.fetchAnalytics();  
+    this.fetchmax();
   }
 
   private loadDepartements(): void {
@@ -46,6 +48,12 @@ fetchAnalytics() {
   this.absenceDepartement.fetchAnalytics().subscribe(
     (availablePercentage) => this.availablePercentage = availablePercentage as number,
     error => console.error('Error fetching available percentage:', error)
+  );
+}
+fetchmax() {
+  this.absenceDepartement.fetchMax().subscribe(
+    (max) => this.max = max as number,
+    error => console.error('Error fetching max:', error)
   );
 }
 

@@ -11,16 +11,21 @@ export class ListEmployeesComponent implements OnInit {
   employees: any[] = [];
   starsArray: any[] = [];
   emptyStarsArray: any[] = [];
+  availablePercentage:number=0;
+  max:number=0;
 
   constructor(private employeeService: SericeEmployeeService) {}
 
   ngOnInit(): void {
     this.loadAbsences();
+    this.fetchAnalytics();
+    this.fetchmax();
   }
 
   private loadAbsences(): void {
     this.employeeService.getall().subscribe((absences)=>{
       this.employees=absences as any[];
+      console.log(this.max)
     })
   }
 
@@ -35,4 +40,17 @@ export class ListEmployeesComponent implements OnInit {
         });
     }
 }
+fetchAnalytics() {
+  this.employeeService.moyennedeperf().subscribe(
+    (availablePercentage) => this.availablePercentage = availablePercentage as number,
+    error => console.error('Error fetching available percentage:', error)
+  );
+}
+fetchmax() {
+  this.employeeService.calculateNbreEmpl().subscribe(
+    (max) => this.max = max as number,
+    error => console.error('Error fetching max:', error)
+  );
+}
+
 }

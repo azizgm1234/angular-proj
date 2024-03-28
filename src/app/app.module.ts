@@ -34,6 +34,7 @@ import { ListContratEmployeeComponent } from './BackOffice/contratEmploye/list-c
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CircularChartComponent } from './BackOffice/dashboarding/circular-chart/circular-chart.component';
 import { ChartsModule } from 'ng2-charts';
+import { CircularChartEmployeeComponent } from './BackOffice/dashboarding/circular-chart-employee/circular-chart-employee.component';
 
 
 
@@ -62,6 +63,7 @@ import { ChartsModule } from 'ng2-charts';
     AddContratEmployeComponent,
     ListContratEmployeeComponent,
     CircularChartComponent,
+    CircularChartEmployeeComponent,
   ],
   imports: [
     BrowserModule,

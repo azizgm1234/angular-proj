@@ -32,5 +32,11 @@ export class SericeEmployeeService {
   getEmployee(id: number){
     return this.http.get<Employee>(this.URL+"/getEmployee/" + id);
   }
+  moyennedeperf(){
+    return this.http.get<number>(this.URL+"/moyennedeperf");
+  }
+  calculateNbreEmpl(){
+    return this.http.get<number>(this.URL+"/calculateNbreEmpl");
+  }
 
 }

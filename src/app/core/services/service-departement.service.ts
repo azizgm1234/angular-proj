@@ -24,6 +24,10 @@ export class ServiceDepartementService {
   fetchAnalytics(){
     return this.http.get<number>(this.URL+"/availablePercentage");
   }
+  fetchMax(){
+    return this.http.get<number>(this.URL+"/max");
+  }
+
 
 
   removeDepartement(id: number) {
